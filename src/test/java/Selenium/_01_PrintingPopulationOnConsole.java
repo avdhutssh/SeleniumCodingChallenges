@@ -10,79 +10,98 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class _01_PrintingPopulationOnConsole {
+    private WebDriver driver;
+    private static final String URL = "https://www.worldometers.info/world-population";
+    private static final long DURATION = 5000; // 5 seconds
 
-	@Test
-	private static void _01_Brute_Force_Approach() throws InterruptedException {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://www.worldometers.info/world-population");
-		WebElement currentPopulation = driver.findElement(By.xpath("//*[@rel='current_population']"));
-		WebElement todayBirths = driver.findElement(By.xpath("//*[@rel='births_today']"));
-		WebElement todayDeaths = driver.findElement(By.xpath("//*[@rel='dth1s_today']"));
-		WebElement todayGrowth = driver.findElement(By.xpath("//*[@rel='absolute_growth']"));
-		WebElement yearBirths = driver.findElement(By.xpath("//*[@rel='births_this_year']"));
-		WebElement yearDeaths = driver.findElement(By.xpath("//*[@rel='dth1s_this_year']"));
-		WebElement yearGrowth = driver.findElement(By.xpath("//*[@rel='absolute_growth_year']"));
-		WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wt.until(ExpectedConditions.visibilityOf(currentPopulation));
-		long startTime = System.currentTimeMillis();
-		while (System.currentTimeMillis() - startTime < 5000) {
-			System.out.println("Current Population is: " + currentPopulation.getText());
-			System.out.println("todayBirths is: " + todayBirths.getText());
-			System.out.println("todayDeaths is: " + todayDeaths.getText());
-			System.out.println("todayGrowth is: " + todayGrowth.getText());
-			System.out.println("yearBirths is: " + yearBirths.getText());
-			System.out.println("yearDeaths is: " + yearDeaths.getText());
-			System.out.println("yearGrowth is: " + yearGrowth.getText());
-			System.out.println("----------------------------------------");
-			Thread.sleep(1000);
-		}
-		driver.close();
+    @BeforeTest
+    public void setUp() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(URL);
+    }
 
-	}
+    @AfterTest
+    public void tearDown() {
+        if (driver != null) {
+            driver.close();
+        }
+    }
 
-	@Test
-	private static void _02_Using_List_For_Xpath_AttributeValues() throws InterruptedException {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://www.worldometers.info/world-population");
-		List<String> relAttributeValues = Arrays.asList("current_population", "births_today", "dth1s_today",
-				"absolute_growth", "births_this_year", "dth1s_this_year", "absolute_growth_year");
-		long startTime = System.currentTimeMillis();
-		while (System.currentTimeMillis() - startTime < 5000) {
-			for (String value : relAttributeValues) {
-				WebElement element = driver.findElement(By.xpath("//*[@rel='" + value + "']"));
-				System.out.println(value + " is: " + element.getText());
+    private void printPopulationData(WebElement currentPopulation, WebElement todayBirths, WebElement todayDeaths, 
+                                     WebElement todayGrowth, WebElement yearBirths, WebElement yearDeaths, 
+                                     WebElement yearGrowth) throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < DURATION) {
+            System.out.println("Current Population is: " + currentPopulation.getText());
+            System.out.println("Today Births is: " + todayBirths.getText());
+            System.out.println("Today Deaths is: " + todayDeaths.getText());
+            System.out.println("Today Growth is: " + todayGrowth.getText());
+            System.out.println("Year Births is: " + yearBirths.getText());
+            System.out.println("Year Deaths is: " + yearDeaths.getText());
+            System.out.println("Year Growth is: " + yearGrowth.getText());
+            System.out.println("----------------------------------------");
+            Thread.sleep(1000);
+        }
+    }
 
-			}
-			System.out.println("----------------------------------------");
-			Thread.sleep(1000);
-		}
-		driver.close();
+    private void printPopulationDataFromList(List<String> relAttributeValues) throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < DURATION) {
+            for (String value : relAttributeValues) {
+                WebElement element = driver.findElement(By.xpath("//*[@rel='" + value + "']"));
+                System.out.println(value + " is: " + element.getText());
+            }
+            System.out.println("----------------------------------------");
+            Thread.sleep(1000);
+        }
+    }
 
-	}
+    private void printPopulationDataFromIndexing() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - startTime < DURATION) {
+            for (int i = 1; i <= 7; i++) {
+                WebElement element = driver.findElement(By.xpath("(//*[@class='row']//span[@class='rts-counter'])[" + i + "]"));
+                System.out.println(element.getAttribute("rel") + " is: " + element.getText());
+            }
+            System.out.println("----------------------------------------");
+            Thread.sleep(1000);
+        }
+    }
 
-	@Test
-	private static void _03_Using_Xpath_Indexing() {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://www.worldometers.info/world-population");
-		long startTime = System.currentTimeMillis();
-		while (System.currentTimeMillis() - startTime < 5000) {
-			for (int i = 1; i <= 7; i++) {
-				WebElement element = driver.findElement(By.xpath("(//*[@class='row']//span[@class='rts-counter'])["+i+"]"));
-				System.out.println(element.getAttribute("rel")+ " is : "+element.getText());
+    @Test
+    public void bruteForceApproach() throws InterruptedException {
+        WebElement currentPopulation = driver.findElement(By.xpath("//*[@rel='current_population']"));
+        WebElement todayBirths = driver.findElement(By.xpath("//*[@rel='births_today']"));
+        WebElement todayDeaths = driver.findElement(By.xpath("//*[@rel='dth1s_today']"));
+        WebElement todayGrowth = driver.findElement(By.xpath("//*[@rel='absolute_growth']"));
+        WebElement yearBirths = driver.findElement(By.xpath("//*[@rel='births_this_year']"));
+        WebElement yearDeaths = driver.findElement(By.xpath("//*[@rel='dth1s_this_year']"));
+        WebElement yearGrowth = driver.findElement(By.xpath("//*[@rel='absolute_growth_year']"));
 
-			}
-			System.out.println("----------------------------------------");
-		}
-		driver.close();
+        WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wt.until(ExpectedConditions.visibilityOf(currentPopulation));
 
-	}
+        printPopulationData(currentPopulation, todayBirths, todayDeaths, todayGrowth, yearBirths, yearDeaths, yearGrowth);
+    }
+
+    @Test
+    public void usingListForXpathAttributeValues() throws InterruptedException {
+        List<String> relAttributeValues = Arrays.asList(
+            "current_population", "births_today", "dth1s_today",
+            "absolute_growth", "births_this_year", "dth1s_this_year", "absolute_growth_year"
+        );
+        printPopulationDataFromList(relAttributeValues);
+    }
+
+    @Test
+    public void usingXpathIndexing() throws InterruptedException {
+        printPopulationDataFromIndexing();
+    }
 }
