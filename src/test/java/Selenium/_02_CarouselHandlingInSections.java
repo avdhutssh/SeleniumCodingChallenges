@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,7 +17,7 @@ import org.testng.annotations.Test;
 public class _02_CarouselHandlingInSections {
 
 	@Test
-	public void method1_Try() throws InterruptedException {
+	public void _01_Using_BFA() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.noon.com/uae-en/");
