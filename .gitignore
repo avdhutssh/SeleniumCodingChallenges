@@ -1,8 +1,9 @@
 .classpath
 .project
-org.eclipse*
+.settings/
 *.png
 *.gif
 *.html
 *.css
 test-output/
+target/
