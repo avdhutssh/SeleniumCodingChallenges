@@ -46,7 +46,7 @@ public class _01_PrintingPopulationOnConsole {
 	}
 
 	@Test
-	private static void _02_Using_List_For_Xpath_AttributeValues() {
+	private static void _02_Using_List_For_Xpath_AttributeValues() throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -61,6 +61,7 @@ public class _01_PrintingPopulationOnConsole {
 
 			}
 			System.out.println("----------------------------------------");
+			Thread.sleep(1000);
 		}
 		driver.close();
 
