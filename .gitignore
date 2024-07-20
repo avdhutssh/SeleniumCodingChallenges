@@ -5,5 +5,5 @@
 *.gif
 *.html
 *.css
-test-output/
 target/
+test-output/
