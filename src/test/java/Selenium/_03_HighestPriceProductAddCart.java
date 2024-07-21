@@ -48,6 +48,7 @@ public class _03_HighestPriceProductAddCart {
 			}
 		}
 		String highest = String.valueOf(highestPrice);
+		System.out.println("Highest price in BFA: " + highestPrice);
 		List<WebElement> products = driver.findElements(By.xpath("//*[contains(text(),'$')]"));
 		for (int i = 1; i <= products.size(); i++) {
 			String value = driver.findElement(By.xpath("(//*[contains(text(),'$')])[" + i + "]")).getText().replace("$",
@@ -56,6 +57,19 @@ public class _03_HighestPriceProductAddCart {
 				driver.findElement(By.xpath("(//*[contains(text(),'$')])[" + i + "]/../button")).click();
 			}
 		}
+
+	}
+
+	@Test
+	public void _02_Using_Stream_Max_Min() throws InterruptedException {
+		List<WebElement> items = driver.findElements(By.xpath("//*[@class='inventory_item_price']"));
+		double highestPrice = items.stream().mapToDouble(e -> Double.parseDouble(e.getText().trim().replace("$", "")))
+				.max().getAsDouble();
+		double lowestPrice = items.stream().mapToDouble(e -> Double.parseDouble(e.getText().trim().replace("$", "")))
+				.min().getAsDouble();
+		System.out.println("Highest price in Stream: " + highestPrice + " & lowest price in stream: " + lowestPrice);
+		driver.findElement(By.xpath("//*[normalize-space()='$" + highestPrice + "']/../button")).click();
+		driver.findElement(By.xpath("//*[normalize-space()='$" + lowestPrice + "']/../button")).click();
 
 	}
 }
