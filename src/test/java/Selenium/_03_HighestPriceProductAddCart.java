@@ -72,4 +72,18 @@ public class _03_HighestPriceProductAddCart {
 		driver.findElement(By.xpath("//*[normalize-space()='$" + lowestPrice + "']/../button")).click();
 
 	}
+
+	@Test
+	public void _03_Using_Simple_Iteration() throws InterruptedException {
+		List<WebElement> items = driver.findElements(By.xpath("//*[@class='inventory_item_price']"));
+		double highestPrice = 0;
+		for (WebElement ele : items) {
+			double price = Double.parseDouble(ele.getText().trim().replace("$", ""));
+			if (highestPrice < price) {
+				highestPrice = price;
+			}
+		}
+		System.out.println("Highest price in Iteration: " + highestPrice);
+		driver.findElement(By.xpath("//*[normalize-space()='$" + highestPrice + "']/../button")).click();
+	}
 }
