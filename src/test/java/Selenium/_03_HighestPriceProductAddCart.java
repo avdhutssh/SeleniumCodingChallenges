@@ -86,4 +86,24 @@ public class _03_HighestPriceProductAddCart {
 		System.out.println("Highest price in Iteration: " + highestPrice);
 		driver.findElement(By.xpath("//*[normalize-space()='$" + highestPrice + "']/../button")).click();
 	}
+
+	//to-do
+	// @Test
+	// public void _04_Using_JS_ScriptInjection() {
+	// 	String js_Script = "var max = 0;\r\n"
+	// 			+ "document.getElementsByClassName('inventory_item_price').forEach(e=>{\r\n"
+	// 			+ "    newVal = parseFloat(e.innerText.split('$')[1]);\r\n" + "    if (max < newVal) {\r\n"
+	// 			+ "        max = newVal;\r\n" + "    }\r\n" + "}\r\n" + ");\r\n" + "console.log(max);\r\n"
+	// 			+ "var xpathVal = \"//div[normalize-space()='$\" + max + \"']/following-sibling::button[text()='Add to cart']\";\r\n"
+	// 			+ "var ele = document.evaluate(xpathVal, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;\r\n"
+	// 			+ "ele.click();\r\n" + "";
+	// 	WebDriver driver = new ChromeDriver();
+	// 	driver.manage().window().maximize();
+	// 	driver.get("https://www.saucedemo.com/");
+	// 	driver.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
+	// 	driver.findElement(By.cssSelector("#password")).sendKeys("secret_sauce");
+	// 	driver.findElement(By.id("login-button")).click();
+	// 	JavascriptExecutor js = ((JavascriptExecutor) driver);
+	// 	js.executeScript(js_Script);
+	// }
 }
