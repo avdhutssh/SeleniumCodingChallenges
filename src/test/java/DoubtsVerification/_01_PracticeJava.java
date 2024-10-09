@@ -105,28 +105,47 @@ public class _01_PracticeJava {
 //		int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 }; // 2 10 11
 //		_19_duplicateElementsArray(arr);
 
-		int[] arr = new int[] { 1, 2, 3, 4, 5 }; // 5, 4, 3, 2, 1
-		_20_ReverseArray_UsingStack(arr);
-		System.out.println("---------------------------");
-		_21_ReverseArrayUsing_Two_Pointer_Technique(arr);
+//		int[] arr = new int[] { 1, 2, 3, 4, 5 }; // 5, 4, 3, 2, 1
+//		_20_ReverseArray_UsingStack(arr);
+//		System.out.println("---------------------------");
+//		_21_ReverseArrayUsing_Two_Pointer_Technique(arr);
+
+		int[] arr1 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
+		_22_AscedingOrderArray_BubbleSort(arr1);
+	}
+
+	private static void _22_AscedingOrderArray_BubbleSort(int[] arr) {
+		// Time complexity: O(n^2)
+		// Space complexity: O(1)
+		for (int i = 0; i < arr.length - 1; i++) {
+			for (int j = 0; j < arr.length - i - 1; j++) {
+				if (arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(arr));
+
 	}
 
 	private static void _21_ReverseArrayUsing_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 
-		int left=0;
-		int right = arr.length-1;
-		while(left<right) {
+		int left = 0;
+		int right = arr.length - 1;
+		while (left < right) {
 			int temp = arr[left];
 			arr[left] = arr[right];
 			arr[right] = temp;
 			left++;
 			right--;
 		}
-		
+
 		System.out.println(Arrays.toString(arr));
-		
+
 	}
 
 	private static void _20_ReverseArray_UsingStack(int[] arr) {
