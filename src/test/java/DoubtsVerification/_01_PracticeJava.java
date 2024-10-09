@@ -31,10 +31,30 @@ public class _01_PracticeJava {
 //		int[] array2 = { 2, 4, 5, 6, 3 };
 //		_08_HT_CommonElementsInArray(array1, array2);
 
-		int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
+//		int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
 //		_09_HashSeT_findDuplicatesInArray(nums); // 2 1 4 3
 
-		_10_HashMap_findDuplicatesInArray(nums); // 2 1 4 3
+//		_10_HashMap_findDuplicatesInArray(nums); // 2 1 4 3
+
+		System.out.println(_11_HashMap_firstNonRepeatingChar("leetcode")); // l
+		System.out.println(_11_HashMap_firstNonRepeatingChar("hello")); // h
+		System.out.println(_11_HashMap_firstNonRepeatingChar("aabbcc")); // null
+
+	}
+
+	private static Character _11_HashMap_firstNonRepeatingChar(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashMap<Character, Integer> hm = new HashMap<>();
+		for (char ch : str.toCharArray()) {
+			hm.put(ch, hm.getOrDefault(ch, 0) + 1);
+		}
+		for (char ch : str.toCharArray()) {
+			if (hm.get(ch) == 1) {
+				return ch;
+			}
+		}
+		return null;
 	}
 
 	private static void _10_HashMap_findDuplicatesInArray(int[] nums) {
