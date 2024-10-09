@@ -1,7 +1,11 @@
 package DoubtsVerification;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -36,10 +40,36 @@ public class _01_PracticeJava {
 
 //		_10_HashMap_findDuplicatesInArray(nums); // 2 1 4 3
 
-		System.out.println(_11_HashMap_firstNonRepeatingChar("leetcode")); // l
-		System.out.println(_11_HashMap_firstNonRepeatingChar("hello")); // h
-		System.out.println(_11_HashMap_firstNonRepeatingChar("aabbcc")); // null
+//		System.out.println(_11_HashMap_firstNonRepeatingChar("leetcode")); // l
+//		System.out.println(_11_HashMap_firstNonRepeatingChar("hello")); // h
+//		System.out.println(_11_HashMap_firstNonRepeatingChar("aabbcc")); // null
 
+		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
+		// [[eat, tea, ate], [tan, nat], [bat]]
+		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
+		// [[abc, cba, bac], [foo], [bar]]
+		System.out.println(_012_Using_Hashmap_groupAnagrams(
+				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
+		// [[listen, silent], [triangle, integral], [garden, ranged]]
+
+	}
+
+	private static List<List<String>> _012_Using_Hashmap_groupAnagrams(String[] strArr) {
+
+		HashMap<String, List<String>> anagramGroup = new HashMap<>();
+		for (String str : strArr) {
+			char[] chars = str.toCharArray();
+			Arrays.sort(chars);
+			String sortedStr = new String(chars);
+			if (anagramGroup.containsKey(sortedStr)) {
+				anagramGroup.get(sortedStr).add(str);
+			} else {
+				List<String> group = new ArrayList<>();
+				group.add(str);
+				anagramGroup.put(sortedStr, group);
+			}
+		}
+		return new ArrayList<List<String>>(anagramGroup.values());
 	}
 
 	private static Character _11_HashMap_firstNonRepeatingChar(String str) {
