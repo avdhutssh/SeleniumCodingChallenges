@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class _01_PracticeJava {
@@ -101,11 +102,27 @@ public class _01_PracticeJava {
 //		int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; // 10 3 20 4 5 1
 //		_18_frequencyOfEachElementArray(arr);
 
-		int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 }; // 2 10 11
-		_012_duplicateElementsArray(arr);
+//		int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 }; // 2 10 11
+//		_19_duplicateElementsArray(arr);
+
+		int[] arr = new int[] { 1, 2, 3, 4, 5 }; // 5, 4, 3, 2, 1
+		_20_ReverseArray_UsingStack(arr);
 	}
 
-	private static void _012_duplicateElementsArray(int[] arr) {
+	private static void _20_ReverseArray_UsingStack(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Stack<Integer> st = new Stack<>();
+		for (int num : arr) {
+			st.add(num);
+		}
+
+		while (!st.isEmpty()) {
+			System.out.print(st.pop() + " ");
+		}
+	}
+
+	private static void _19_duplicateElementsArray(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		HashSet<Integer> hs = new HashSet<>();
