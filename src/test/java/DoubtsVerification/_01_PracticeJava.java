@@ -43,46 +43,79 @@ public class _01_PracticeJava {
 //		System.out.println(_11_HashMap_firstNonRepeatingChar("hello")); // h
 //		System.out.println(_11_HashMap_firstNonRepeatingChar("aabbcc")); // null
 
-//		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
+//		System.out.println(_12_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
 //		// [[eat, tea, ate], [tan, nat], [bat]]
-//		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
+//		System.out.println(_12_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
 //		// [[abc, cba, bac], [foo], [bar]]
-//		System.out.println(_012_Using_Hashmap_groupAnagrams(
+//		System.out.println(_12_Using_Hashmap_groupAnagrams(
 //				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
 //		// [[listen, silent], [triangle, integral], [garden, ranged]]
-
 //		System.out.println(
-//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
+//				Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
 //		// [0, 1]
-//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
+//		System.out.println(Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
 //		// [1, 2]
-//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
+//		System.out.println(Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
 //		// [0, 1]
 //		System.out.println(
-//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
+//				Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
 //		// []
 //		System.out.println(
-//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
+//				Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
 //		// [2, 3]
 //		System.out.println(
-//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
+//				Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
 //		// [0, 1]
-//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
+//		System.out.println(Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
 //		// []
 
-		List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-		System.out.println(_0014_Set_removeDuplicates(myList));
+//		List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+//		System.out.println(_14_Set_removeDuplicates(myList));
+
+		String str1 = "abcdefg"; // should return true
+		String str2 = "hello"; // should return false
+		String str3 = ""; // should return true
+		String str4 = "0123456789"; // should return true
+		String str5 = "abacadaeaf"; // should return false
+
+		System.out.println(_15_Set_hasUniqueChars(str1));
+		System.out.println(_15_Set_hasUniqueChars(str2));
+		System.out.println(_15_Set_hasUniqueChars(str3));
+		System.out.println(_15_Set_hasUniqueChars(str4));
+		System.out.println(_15_Set_hasUniqueChars(str5));
+
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str1));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str2));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str3));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
 
 	}
 
-	private static List<Integer> _0014_Set_removeDuplicates(List<Integer> myList) {
+	private static boolean _16_Set_Stream_hasUniqueChars(String str) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	private static boolean _15_Set_hasUniqueChars(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Character> hs = new HashSet<>();
+		for (char ch : str.toCharArray()) {
+			if (!hs.add(ch))
+				return false;
+		}
+		return true;
+	}
+
+	private static List<Integer> _14_Set_removeDuplicates(List<Integer> myList) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		Set<Integer> hs = new HashSet<>(myList);
 		return new ArrayList<Integer>(hs);
 	}
 
-	private static int[] _013_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
+	private static int[] _13_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		HashMap<Integer, Integer> hm = new HashMap<>();
@@ -97,7 +130,7 @@ public class _01_PracticeJava {
 		return new int[] {};
 	}
 
-	private static List<List<String>> _012_Using_Hashmap_groupAnagrams(String[] strArr) {
+	private static List<List<String>> _12_Using_Hashmap_groupAnagrams(String[] strArr) {
 		// Time complexity: O(NKlogK)
 		// Space complexity: O(NK)
 		HashMap<String, List<String>> anagramGroup = new HashMap<>();
