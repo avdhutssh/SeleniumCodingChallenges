@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class _01_PracticeJava {
@@ -127,12 +128,26 @@ public class _01_PracticeJava {
 
 		int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 3
 		int[] arr2 = { 500, 100, 10, 50, 300 }; // 50
-		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr1));
-		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr2));
+//		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr1));
+//		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr2));
+
+		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr1));
+		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr2));
+	}
+
+	private static int _26_secondSmallestNumberArray_UsingTreeSet(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+		TreeSet<Integer> ts = new TreeSet<>();
+		for (int num : arr) {
+			ts.add(num);
+		}
+		return ts.higher(ts.first());
 	}
 
 	private static int _25_secondSmallestNumberArray_UsingHeap(int[] arr) {
-
+		// Time complexity: O(nlogk)
+		// Space complexity: O(1)
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 		HashSet<Integer> unique = new HashSet<>();
 		for (int num : arr) {
