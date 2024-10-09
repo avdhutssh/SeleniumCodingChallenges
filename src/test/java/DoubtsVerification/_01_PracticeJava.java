@@ -2,11 +2,14 @@ package DoubtsVerification;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
@@ -110,8 +113,28 @@ public class _01_PracticeJava {
 //		System.out.println("---------------------------");
 //		_21_ReverseArrayUsing_Two_Pointer_Technique(arr);
 
-		int[] arr1 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
-		_22_AscedingOrderArray_BubbleSort(arr1);
+//		int[] arr1 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
+//		_22_AscedingOrderArray_BubbleSort(arr1);
+
+		int[] arr2 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
+		_23_AscedingOrderArray_MaxHeap(arr2);
+	}
+
+	private static void _23_AscedingOrderArray_MaxHeap(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+		for (int num : arr) {
+			maxHeap.add(num);
+		}
+
+		int index = arr.length - 1;
+
+		while (!maxHeap.isEmpty()) {
+			arr[index--] = maxHeap.poll();
+		}
+		System.out.println(Arrays.toString(arr));
 	}
 
 	private static void _22_AscedingOrderArray_BubbleSort(int[] arr) {
