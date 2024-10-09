@@ -1,8 +1,9 @@
 package DoubtsVerification;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class _01_PracticeJava {
 
@@ -25,18 +26,32 @@ public class _01_PracticeJava {
 //		int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
 //		_07_missingNumber(numbers); // 4
 
-		int[] array1 = { 1, 3, 5 };
-		int[] array2 = { 2, 4, 5, 6, 3 };
-		_08_HT_CommonElementsInArray(array1, array2);
+//		int[] array1 = { 1, 3, 5 };
+//		int[] array2 = { 2, 4, 5, 6, 3 };
+//		_08_HT_CommonElementsInArray(array1, array2);
+
+		int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
+		_09_HT_findDuplicatesInArray(nums); // 2 1 4 3
+	}
+
+	private static void _09_HT_findDuplicatesInArray(int[] nums) {
+
+		Set<Integer> hs = new HashSet<>();
+		for (int num : nums) {
+			if (!hs.add(num)) {
+				System.out.print(num + " ");
+			}
+		}
+
 	}
 
 	private static void _08_HT_CommonElementsInArray(int[] arr1, int[] arr2) {
 		// Time complexity: O(n+m)
 		// Space complexity: O(n)
-		if(arr2.length>arr1.length) {
+		if (arr2.length > arr1.length) {
 			int[] temp = arr2;
 			arr2 = arr1;
-			arr1=temp;
+			arr1 = temp;
 		}
 
 		HashMap<Integer, Boolean> hm = new HashMap<Integer, Boolean>();
