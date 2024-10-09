@@ -13,19 +13,44 @@ public class _01_PracticeJava {
 
 //		int[] a = { 1, 4, 5, 7 };
 //		int[] b = { 6, 4, 3, 7 };
-//		_03_compareArrayAndFindCommon(a, b);
+//		_03_compareArrayAndFindCommon(a, b);  // 4 7
 
 //		_04_Scanner();
-		_05_FahrenheitCelsius();
+
+//		_05_FahrenheitCelsius();
+
+//		_06_factorial(5); // 120
+
+		int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
+		_07_missingNumber(numbers); // 4
+	}
+
+	private static void _07_missingNumber(int[] arr) {
+		int totalNum = arr.length + 1;
+		int totalSum = totalNum * ((totalNum + 1) / 2);
+		int actualSum = 0;
+		for (int num : arr) {
+			actualSum += num;
+		}
+		System.out.println("Missing Number is: " + (totalSum - actualSum));
+	}
+
+	private static void _06_factorial(int num) {
+
+		int result = 1;
+		for (int i = 1; i <= num; i++) {
+			result *= i;
+		}
+		System.out.println(result);
 	}
 
 	private static void _05_FahrenheitCelsius() {
 		float c;
-		float f=272;
-		
-		c = (f-32)*5/9;
-		System.out.println("Temperatue in Celsius = " +c);
-		
+		float f = 272;
+
+		c = (f - 32) * 5 / 9;
+		System.out.println("Temperatue in Celsius = " + c);
+
 	}
 
 	private static void _04_Scanner() {
