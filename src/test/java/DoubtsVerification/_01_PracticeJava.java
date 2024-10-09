@@ -15,7 +15,17 @@ public class _01_PracticeJava {
 //		int[] b = { 6, 4, 3, 7 };
 //		_03_compareArrayAndFindCommon(a, b);
 
-		_04_Scanner();
+//		_04_Scanner();
+		_05_FahrenheitCelsius();
+	}
+
+	private static void _05_FahrenheitCelsius() {
+		float c;
+		float f=272;
+		
+		c = (f-32)*5/9;
+		System.out.println("Temperatue in Celsius = " +c);
+		
 	}
 
 	private static void _04_Scanner() {
