@@ -51,25 +51,35 @@ public class _01_PracticeJava {
 //				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
 //		// [[listen, silent], [triangle, integral], [garden, ranged]]
 
-		System.out.println(
-				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
-		// [0, 1]
-		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
-		// [1, 2]
-		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
-		// [0, 1]
-		System.out.println(
-				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
-		// []
-		System.out.println(
-				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
-		// [2, 3]
-		System.out.println(
-				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
-		// [0, 1]
-		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
-		// []
+//		System.out.println(
+//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
+//		// [0, 1]
+//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
+//		// [1, 2]
+//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
+//		// [0, 1]
+//		System.out.println(
+//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
+//		// []
+//		System.out.println(
+//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
+//		// [2, 3]
+//		System.out.println(
+//				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
+//		// [0, 1]
+//		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
+//		// []
 
+		List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		System.out.println(_0014_Set_removeDuplicates(myList));
+
+	}
+
+	private static List<Integer> _0014_Set_removeDuplicates(List<Integer> myList) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Integer> hs = new HashSet<>(myList);
+		return new ArrayList<Integer>(hs);
 	}
 
 	private static int[] _013_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
