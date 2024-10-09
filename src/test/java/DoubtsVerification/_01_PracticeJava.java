@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class _01_PracticeJava {
 
@@ -78,23 +79,25 @@ public class _01_PracticeJava {
 		String str4 = "0123456789"; // should return true
 		String str5 = "abacadaeaf"; // should return false
 
-		System.out.println(_15_Set_hasUniqueChars(str1));
-		System.out.println(_15_Set_hasUniqueChars(str2));
-		System.out.println(_15_Set_hasUniqueChars(str3));
-		System.out.println(_15_Set_hasUniqueChars(str4));
-		System.out.println(_15_Set_hasUniqueChars(str5));
+//		System.out.println(_15_Set_hasUniqueChars(str1));
+//		System.out.println(_15_Set_hasUniqueChars(str2));
+//		System.out.println(_15_Set_hasUniqueChars(str3));
+//		System.out.println(_15_Set_hasUniqueChars(str4));
+//		System.out.println(_15_Set_hasUniqueChars(str5));
 
-//		System.out.println(_16_Set_Stream_hasUniqueChars(str1));
-//		System.out.println(_16_Set_Stream_hasUniqueChars(str2));
-//		System.out.println(_16_Set_Stream_hasUniqueChars(str3));
-//		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
-//		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
+		System.out.println(_16_Set_Stream_hasUniqueChars(str1));
+		System.out.println(_16_Set_Stream_hasUniqueChars(str2));
+		System.out.println(_16_Set_Stream_hasUniqueChars(str3));
+		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
+		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
 
 	}
 
 	private static boolean _16_Set_Stream_hasUniqueChars(String str) {
-		// TODO Auto-generated method stub
-		return true;
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Character> hs = str.chars().mapToObj(ch -> (char) ch).collect(Collectors.toSet());
+		return hs.size() == str.length();
 	}
 
 	private static boolean _15_Set_hasUniqueChars(String str) {
