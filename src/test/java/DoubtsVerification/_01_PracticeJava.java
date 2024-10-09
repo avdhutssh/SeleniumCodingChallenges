@@ -116,8 +116,34 @@ public class _01_PracticeJava {
 //		int[] arr1 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
 //		_22_AscedingOrderArray_BubbleSort(arr1);
 
-		int[] arr2 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
-		_23_AscedingOrderArray_MaxHeap(arr2);
+//		int[] arr2 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
+//		_23_AscedingOrderArray_MaxHeap(arr2);
+
+		int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 11
+		int[] arr2 = { 2, 100, 10, 50, 300 }; // 100
+
+		System.out.println(_24_secondLargestNumberArray(arr1));
+		System.out.println(_24_secondLargestNumberArray(arr2));
+	}
+
+	private static int _24_secondLargestNumberArray(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		if (arr.length < 2) {
+			throw new IllegalArgumentException("Array must contains atleast 2 elements");
+		}
+
+		int largest = Integer.MIN_VALUE;
+		int secondLargest = Integer.MIN_VALUE;
+		for (int num : arr) {
+			if (num > largest) {
+				secondLargest = largest;
+				largest = num;
+			} else if (num < largest && num > secondLargest) {
+				secondLargest = num;
+			}
+		}
+		return secondLargest;
 	}
 
 	private static void _23_AscedingOrderArray_MaxHeap(int[] arr) {
