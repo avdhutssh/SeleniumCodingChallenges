@@ -98,8 +98,25 @@ public class _01_PracticeJava {
 //		List<int[]> pairs = _17_Set_findPairsFromTwoArrays(arr1, arr2, target);
 //		printPairs(pairs);
 
-		int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; // 10 3 20 4 5 1
-		_18_frequencyOfEachElementArray(arr);
+//		int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; // 10 3 20 4 5 1
+//		_18_frequencyOfEachElementArray(arr);
+
+		int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 }; // 2 10 11
+		_012_duplicateElementsArray(arr);
+	}
+
+	private static void _012_duplicateElementsArray(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashSet<Integer> hs = new HashSet<>();
+		HashSet<Integer> duplicates = new HashSet<>();
+		for (int num : arr) {
+			if (!hs.add(num)) {
+				duplicates.add(num);
+			}
+		}
+
+		System.out.println(duplicates);
 	}
 
 	private static void _18_frequencyOfEachElementArray(int[] arr) {
