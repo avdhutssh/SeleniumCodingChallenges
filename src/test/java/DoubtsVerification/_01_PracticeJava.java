@@ -1,6 +1,7 @@
 package DoubtsVerification;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class _01_PracticeJava {
@@ -21,11 +22,39 @@ public class _01_PracticeJava {
 
 //		_06_factorial(5); // 120
 
-		int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
-		_07_missingNumber(numbers); // 4
+//		int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
+//		_07_missingNumber(numbers); // 4
+
+		int[] array1 = { 1, 3, 5 };
+		int[] array2 = { 2, 4, 5, 6, 3 };
+		_08_HT_CommonElementsInArray(array1, array2);
+	}
+
+	private static void _08_HT_CommonElementsInArray(int[] arr1, int[] arr2) {
+		// Time complexity: O(n+m)
+		// Space complexity: O(n)
+		if(arr2.length>arr1.length) {
+			int[] temp = arr2;
+			arr2 = arr1;
+			arr1=temp;
+		}
+
+		HashMap<Integer, Boolean> hm = new HashMap<Integer, Boolean>();
+		for (int num : arr1) {
+			hm.put(num, true);
+		}
+
+		for (int num : arr2) {
+			if (hm.containsKey(num)) {
+				System.out.println(num);
+			}
+		}
+
 	}
 
 	private static void _07_missingNumber(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		int totalNum = arr.length + 1;
 		int totalSum = totalNum * ((totalNum + 1) / 2);
 		int actualSum = 0;
@@ -36,7 +65,6 @@ public class _01_PracticeJava {
 	}
 
 	private static void _06_factorial(int num) {
-
 		int result = 1;
 		for (int i = 1; i <= num; i++) {
 			result *= i;
