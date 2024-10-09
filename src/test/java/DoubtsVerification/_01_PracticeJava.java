@@ -119,11 +119,31 @@ public class _01_PracticeJava {
 //		int[] arr2 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
 //		_23_AscedingOrderArray_MaxHeap(arr2);
 
-		int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 11
-		int[] arr2 = { 2, 100, 10, 50, 300 }; // 100
+//		int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 11
+//		int[] arr2 = { 2, 100, 10, 50, 300 }; // 100
+//
+//		System.out.println(_24_secondLargestNumberArray(arr1));
+//		System.out.println(_24_secondLargestNumberArray(arr2));
 
-		System.out.println(_24_secondLargestNumberArray(arr1));
-		System.out.println(_24_secondLargestNumberArray(arr2));
+		int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 3
+		int[] arr2 = { 500, 100, 10, 50, 300 }; // 50
+		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr1));
+		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr2));
+	}
+
+	private static int _25_secondSmallestNumberArray_UsingHeap(int[] arr) {
+
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+		HashSet<Integer> unique = new HashSet<>();
+		for (int num : arr) {
+			if (unique.add(num)) {
+				maxHeap.offer(num);
+				if (maxHeap.size() > 2) {
+					maxHeap.poll();
+				}
+			}
+		}
+		return maxHeap.peek();
 	}
 
 	private static int _24_secondLargestNumberArray(int[] arr) {
