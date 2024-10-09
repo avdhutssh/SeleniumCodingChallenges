@@ -2,7 +2,6 @@ package DoubtsVerification;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -44,18 +43,53 @@ public class _01_PracticeJava {
 //		System.out.println(_11_HashMap_firstNonRepeatingChar("hello")); // h
 //		System.out.println(_11_HashMap_firstNonRepeatingChar("aabbcc")); // null
 
-		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
-		// [[eat, tea, ate], [tan, nat], [bat]]
-		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
-		// [[abc, cba, bac], [foo], [bar]]
-		System.out.println(_012_Using_Hashmap_groupAnagrams(
-				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
-		// [[listen, silent], [triangle, integral], [garden, ranged]]
+//		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
+//		// [[eat, tea, ate], [tan, nat], [bat]]
+//		System.out.println(_012_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
+//		// [[abc, cba, bac], [foo], [bar]]
+//		System.out.println(_012_Using_Hashmap_groupAnagrams(
+//				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
+//		// [[listen, silent], [triangle, integral], [garden, ranged]]
+
+		System.out.println(
+				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
+		// [0, 1]
+		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
+		// [1, 2]
+		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
+		// [0, 1]
+		System.out.println(
+				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
+		// []
+		System.out.println(
+				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
+		// [2, 3]
+		System.out.println(
+				Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
+		// [0, 1]
+		System.out.println(Arrays.toString(_013_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
+		// []
 
 	}
 
-	private static List<List<String>> _012_Using_Hashmap_groupAnagrams(String[] strArr) {
+	private static int[] _013_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashMap<Integer, Integer> hm = new HashMap<>();
+		for (int i = 0; i < arr.length; i++) {
+			int num = arr[i];
+			int otherNum = target - num;
+			if (hm.containsKey(otherNum)) {
+				return new int[] { hm.get(otherNum), i };
+			}
+			hm.put(num, i);
+		}
+		return new int[] {};
+	}
 
+	private static List<List<String>> _012_Using_Hashmap_groupAnagrams(String[] strArr) {
+		// Time complexity: O(NKlogK)
+		// Space complexity: O(NK)
 		HashMap<String, List<String>> anagramGroup = new HashMap<>();
 		for (String str : strArr) {
 			char[] chars = str.toCharArray();
