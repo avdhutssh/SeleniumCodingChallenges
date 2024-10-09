@@ -2,6 +2,7 @@ package DoubtsVerification;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -31,11 +32,29 @@ public class _01_PracticeJava {
 //		_08_HT_CommonElementsInArray(array1, array2);
 
 		int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
-		_09_HT_findDuplicatesInArray(nums); // 2 1 4 3
+//		_09_HashSeT_findDuplicatesInArray(nums); // 2 1 4 3
+
+		_10_HashMap_findDuplicatesInArray(nums); // 2 1 4 3
 	}
 
-	private static void _09_HT_findDuplicatesInArray(int[] nums) {
+	private static void _10_HashMap_findDuplicatesInArray(int[] nums) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Map<Integer, Integer> hm = new HashMap<>();
+		for (int num : nums) {
+			hm.put(num, hm.getOrDefault(num, 0) + 1);
+		}
+		for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+			if (entry.getValue() > 1) {
+				System.out.print(entry.getKey() + " ");
+			}
+		}
 
+	}
+
+	private static void _09_HashSeT_findDuplicatesInArray(int[] nums) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		Set<Integer> hs = new HashSet<>();
 		for (int num : nums) {
 			if (!hs.add(num)) {
