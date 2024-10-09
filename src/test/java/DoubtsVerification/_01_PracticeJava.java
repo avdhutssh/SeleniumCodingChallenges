@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -91,11 +92,26 @@ public class _01_PracticeJava {
 //		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
 //		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
 
-		int[] arr1 = { 1, 2, 3, 4, 5 };
-		int[] arr2 = { 2, 4, 6, 8, 10 };
-		int target = 7; // [5, 2] [3, 4] [1, 6]
-		List<int[]> pairs = _17_Set_findPairsFromTwoArrays(arr1, arr2, target);
-		printPairs(pairs);
+//		int[] arr1 = { 1, 2, 3, 4, 5 };
+//		int[] arr2 = { 2, 4, 6, 8, 10 };
+//		int target = 7; // [5, 2] [3, 4] [1, 6]
+//		List<int[]> pairs = _17_Set_findPairsFromTwoArrays(arr1, arr2, target);
+//		printPairs(pairs);
+
+		int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; // 10 3 20 4 5 1
+		_18_frequencyOfEachElementArray(arr);
+	}
+
+	private static void _18_frequencyOfEachElementArray(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		LinkedHashMap<Integer, Integer> hm = new LinkedHashMap<>();
+		for (int num : arr) {
+			hm.put(num, hm.getOrDefault(num, 0) + 1);
+		}
+
+		System.out.println(hm);
+
 	}
 
 	private static List<int[]> _17_Set_findPairsFromTwoArrays(int[] arr1, int[] arr2, int target) {
