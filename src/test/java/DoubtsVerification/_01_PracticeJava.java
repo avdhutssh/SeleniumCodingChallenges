@@ -85,12 +85,41 @@ public class _01_PracticeJava {
 //		System.out.println(_15_Set_hasUniqueChars(str4));
 //		System.out.println(_15_Set_hasUniqueChars(str5));
 
-		System.out.println(_16_Set_Stream_hasUniqueChars(str1));
-		System.out.println(_16_Set_Stream_hasUniqueChars(str2));
-		System.out.println(_16_Set_Stream_hasUniqueChars(str3));
-		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
-		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str1));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str2));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str3));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str4));
+//		System.out.println(_16_Set_Stream_hasUniqueChars(str5));
 
+		int[] arr1 = { 1, 2, 3, 4, 5 };
+		int[] arr2 = { 2, 4, 6, 8, 10 };
+		int target = 7; // [5, 2] [3, 4] [1, 6]
+		List<int[]> pairs = _17_Set_findPairsFromTwoArrays(arr1, arr2, target);
+		printPairs(pairs);
+	}
+
+	private static List<int[]> _17_Set_findPairsFromTwoArrays(int[] arr1, int[] arr2, int target) {
+		// Time Complexity: O(n + m)
+		// Space Complexity: O(n + m)
+		List<int[]> pairs = new ArrayList<>();
+		HashSet<Integer> hs = new HashSet<>();
+		for (int num : arr1) {
+			hs.add(num);
+		}
+		for (int num : arr2) {
+			if (hs.contains(target - num)) {
+				pairs.add(new int[] { target - num, num });
+			}
+		}
+		return pairs;
+
+	}
+
+	private static void printPairs(List<int[]> pairs) {
+		for (int[] pair : pairs) {
+			System.out.print(Arrays.toString(pair) + " ");
+		}
+		System.out.println();
 	}
 
 	private static boolean _16_Set_Stream_hasUniqueChars(String str) {
