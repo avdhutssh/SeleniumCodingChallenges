@@ -107,6 +107,26 @@ public class _01_PracticeJava {
 
 		int[] arr = new int[] { 1, 2, 3, 4, 5 }; // 5, 4, 3, 2, 1
 		_20_ReverseArray_UsingStack(arr);
+		System.out.println("---------------------------");
+		_21_ReverseArrayUsing_Two_Pointer_Technique(arr);
+	}
+
+	private static void _21_ReverseArrayUsing_Two_Pointer_Technique(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+
+		int left=0;
+		int right = arr.length-1;
+		while(left<right) {
+			int temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+			left++;
+			right--;
+		}
+		
+		System.out.println(Arrays.toString(arr));
+		
 	}
 
 	private static void _20_ReverseArray_UsingStack(int[] arr) {
