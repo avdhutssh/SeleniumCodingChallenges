@@ -157,22 +157,43 @@ public class _01_PracticeJava {
 //
 //		_32_removeLeadingZeros_UsingSubString(str1);
 //		_32_removeLeadingZeros_UsingSubString(str2);
-		
-		String str1 = "1230456000";   //1230456
-		String str2 = "00001230456000";   //00001230456
-		
-		_33_removeTrailingZeros_UsingSubString(str1);
-		_33_removeTrailingZeros_UsingSubString(str2);
+
+//		String str1 = "1230456000";   //1230456
+//		String str2 = "00001230456000";   //00001230456
+//		
+//		_33_removeTrailingZeros_UsingSubString(str1);
+//		_33_removeTrailingZeros_UsingSubString(str2);
+
+		String str = "  geeks for geeks   "; // gfg
+		_34_firstLetterOfEachWordString(str);
+	}
+
+	private static void _34_firstLetterOfEachWordString(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		StringBuilder sb = new StringBuilder();
+		boolean isSpace = true;
+		for (char ch : str.toCharArray()) {
+			if (ch != ' ' && isSpace) {
+				sb.append(ch);
+				isSpace = false;
+			}
+			if (ch == ' ') {
+				isSpace = true;
+			}
+		}
+		System.out.println(sb);
 	}
 
 	private static void _33_removeTrailingZeros_UsingSubString(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-		int end = str.length()-1;
-		while(end>=0 && str.charAt(end)=='0') {
+		int end = str.length() - 1;
+		while (end >= 0 && str.charAt(end) == '0') {
 			end--;
 		}
-		System.out.println(str.substring(0,end+1));
+		System.out.println(str.substring(0, end + 1));
 	}
 
 	private static void _32_removeLeadingZeros_UsingSubString(String str) {
