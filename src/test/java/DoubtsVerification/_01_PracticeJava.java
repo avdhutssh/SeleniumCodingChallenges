@@ -80,11 +80,11 @@ public class _01_PracticeJava {
 //		List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 //		System.out.println(_14_Set_removeDuplicates(myList));
 
-		String str1 = "abcdefg"; // should return true
-		String str2 = "hello"; // should return false
-		String str3 = ""; // should return true
-		String str4 = "0123456789"; // should return true
-		String str5 = "abacadaeaf"; // should return false
+//		String str1 = "abcdefg"; // should return true
+//		String str2 = "hello"; // should return false
+//		String str3 = ""; // should return true
+//		String str4 = "0123456789"; // should return true
+//		String str5 = "abacadaeaf"; // should return false
 
 //		System.out.println(_15_Set_hasUniqueChars(str1));
 //		System.out.println(_15_Set_hasUniqueChars(str2));
@@ -134,38 +134,61 @@ public class _01_PracticeJava {
 
 //		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr1));
 //		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr2));
-		
+
 //		_27_StringPoolConcept();
-		
-		String str = "    India Is My Country";
-		System.out.println(_28_countNumberOfWordsInString_UsingSplitTrim(str));
-		System.out.println(_29_countNumberOfWordsInString_Tokenizer(str));
-		
+
+//		String str = "    India Is My Country";
+//		System.out.println(_28_countNumberOfWordsInString_UsingSplitTrim(str));
+
+//		System.out.println(_29_countNumberOfWordsInString_Tokenizer(str));
+
+		String str1 = "Madam"; // true
+		String str2 = "Avdhut"; // false
+		String str3 = "A man a plan a canal Panama";
+
+		_30_isPalindromeString_UsingBFA(str1);
+		_30_isPalindromeString_UsingBFA(str2);
+		_30_isPalindromeString_UsingBFA(str3);
+	}
+
+	private static void _30_isPalindromeString_UsingBFA(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		boolean isPalindrome = true;
+		str = str.trim().replaceAll("\\s+", "").toLowerCase();
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+				isPalindrome =  false;
+			}
+		}
+		if(isPalindrome) System.out.println("Given String is Palindrome");
+		else System.out.println("Given String is Not a Palindrome");
 	}
 
 	private static int _29_countNumberOfWordsInString_Tokenizer(String str) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(n)
+		// Space Complexity: O(1)
 		StringTokenizer strToken = new StringTokenizer(str);
 		return strToken.countTokens();
-			
+
 	}
 
 	private static int _28_countNumberOfWordsInString_UsingSplitTrim(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 		return str.trim().split(" ").length;
-			
+
 	}
-	
+
 	private static void _27_StringPoolConcept() {
-		
+
 		String str1 = "Avdhut";
 		String str2 = "Avdhut";
 		String str3 = new String("Avdhut");
-		
-		System.out.println(str1==str2);
-		System.out.println(str1==str3);
+
+		System.out.println(str1 == str2);
+		System.out.println(str1 == str3);
 		System.out.println(str1.equals(str2));
 		System.out.println(str1.equals(str3));
 	}
