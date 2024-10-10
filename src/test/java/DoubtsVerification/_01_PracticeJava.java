@@ -174,7 +174,30 @@ public class _01_PracticeJava {
 //		_35_longestSubstringWithoutRepeatingCharacters(str2);
 //		_35_longestSubstringWithoutRepeatingCharacters(str3);
 
-		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
+//		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
+
+		int num1 = 153;
+		int num2 = 1634;
+		int num3 = 5767;
+
+		System.out.println(_37_is_Armstrong_Number(num1));
+		System.out.println(_37_is_Armstrong_Number(num2));
+		System.out.println(_37_is_Armstrong_Number(num3));
+
+	}
+
+	private static boolean _37_is_Armstrong_Number(int num) {
+		// Time complexity: O(d) d-> digits in num
+		// Space complexity: O(1)
+		int originNum = num;
+		int sum = 0;
+		int power = Integer.toString(num).length();
+		while (num != 0) {
+			int digit = num % 10;
+			sum += Math.pow(digit, power);
+			num /= 10;
+		}
+		return originNum==sum;
 	}
 
 	private static List<Integer> _36_fibonacci_Series(int num) {
