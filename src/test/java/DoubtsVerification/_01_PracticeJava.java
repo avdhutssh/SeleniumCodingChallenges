@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
+import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -138,7 +139,16 @@ public class _01_PracticeJava {
 		
 		String str = "    India Is My Country";
 		System.out.println(_28_countNumberOfWordsInString_UsingSplitTrim(str));
+		System.out.println(_29_countNumberOfWordsInString_Tokenizer(str));
 		
+	}
+
+	private static int _29_countNumberOfWordsInString_Tokenizer(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		StringTokenizer strToken = new StringTokenizer(str);
+		return strToken.countTokens();
+			
 	}
 
 	private static int _28_countNumberOfWordsInString_UsingSplitTrim(String str) {
@@ -147,7 +157,7 @@ public class _01_PracticeJava {
 		return str.trim().split(" ").length;
 			
 	}
-
+	
 	private static void _27_StringPoolConcept() {
 		
 		String str1 = "Avdhut";
