@@ -149,8 +149,25 @@ public class _01_PracticeJava {
 //		_30_isPalindromeString_UsingBFA(str2);
 //		_30_isPalindromeString_UsingBFA(str3);
 
-		String str = "Geeks"; // skeeG
-		System.out.println(_31_reverseString_UsingStack(str));
+//		String str = "Geeks"; // skeeG
+//		System.out.println(_31_reverseString_UsingStack(str));
+
+		String str1 = "00000123569";// 123569
+		String str2 = "000012356090";// 12356090
+
+		_32_removeLeadingZeros_UsingSubString(str1);
+		_32_removeLeadingZeros_UsingSubString(str2);
+	}
+
+	private static void _32_removeLeadingZeros_UsingSubString(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) != '0') {
+				System.out.println(str.substring(i));
+				break;
+			}
+		}
 	}
 
 	private static String _31_reverseString_UsingStack(String str) {
