@@ -142,13 +142,29 @@ public class _01_PracticeJava {
 
 //		System.out.println(_29_countNumberOfWordsInString_Tokenizer(str));
 
-		String str1 = "Madam"; // true
-		String str2 = "Avdhut"; // false
-		String str3 = "A man a plan a canal Panama";
+//		String str1 = "Madam"; // true
+//		String str2 = "Avdhut"; // false
+//		String str3 = "A man a plan a canal Panama";
+//		_30_isPalindromeString_UsingBFA(str1);
+//		_30_isPalindromeString_UsingBFA(str2);
+//		_30_isPalindromeString_UsingBFA(str3);
 
-		_30_isPalindromeString_UsingBFA(str1);
-		_30_isPalindromeString_UsingBFA(str2);
-		_30_isPalindromeString_UsingBFA(str3);
+		String str = "Geeks"; // skeeG
+		System.out.println(_31_reverseString_UsingStack(str));
+	}
+
+	private static String _31_reverseString_UsingStack(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		String reverseStr = "";
+		Stack<Character> st = new Stack<>();
+		for (char ch : str.toCharArray()) {
+			st.push(ch);
+		}
+		while (!st.isEmpty()) {
+			reverseStr += st.pop();
+		}
+		return reverseStr;
 	}
 
 	private static void _30_isPalindromeString_UsingBFA(String str) {
@@ -159,11 +175,13 @@ public class _01_PracticeJava {
 		str = str.trim().replaceAll("\\s+", "").toLowerCase();
 		for (int i = 0; i < str.length(); i++) {
 			if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
-				isPalindrome =  false;
+				isPalindrome = false;
 			}
 		}
-		if(isPalindrome) System.out.println("Given String is Palindrome");
-		else System.out.println("Given String is Not a Palindrome");
+		if (isPalindrome)
+			System.out.println("Given String is Palindrome");
+		else
+			System.out.println("Given String is Not a Palindrome");
 	}
 
 	private static int _29_countNumberOfWordsInString_Tokenizer(String str) {
