@@ -164,8 +164,35 @@ public class _01_PracticeJava {
 //		_33_removeTrailingZeros_UsingSubString(str1);
 //		_33_removeTrailingZeros_UsingSubString(str2);
 
-		String str = "  geeks for geeks   "; // gfg
-		_34_firstLetterOfEachWordString(str);
+//		String str = "  geeks for geeks   "; // gfg
+//		_34_firstLetterOfEachWordString(str);
+
+		String str1 = "abcdbeghef"; // 6
+		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
+		String str3 = "eddy"; // 2
+		_35_longestSubstringWithoutRepeatingCharacters(str1);
+		_35_longestSubstringWithoutRepeatingCharacters(str2);
+		_35_longestSubstringWithoutRepeatingCharacters(str3);
+
+	}
+
+	private static void _35_longestSubstringWithoutRepeatingCharacters(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+
+		int start = 0;
+		int max = 0;
+		HashMap<Character, Integer> hm = new HashMap<>();
+		for (int i = 0; i < str.length(); i++) {
+
+			if (hm.containsKey(str.charAt(i))) {
+				start = Math.max(start, hm.get(str.charAt(i)) + 1);
+			}
+			hm.put(str.charAt(i), i);
+			max = Math.max(max, i - start + 1);
+		}
+
+		System.out.println(max);
 	}
 
 	private static void _34_firstLetterOfEachWordString(String str) {
