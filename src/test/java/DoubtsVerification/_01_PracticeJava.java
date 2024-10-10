@@ -134,7 +134,18 @@ public class _01_PracticeJava {
 //		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr1));
 //		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr2));
 		
-		_27_StringPoolConcept();
+//		_27_StringPoolConcept();
+		
+		String str = "    India Is My Country";
+		System.out.println(_28_countNumberOfWordsInString_UsingSplitTrim(str));
+		
+	}
+
+	private static int _28_countNumberOfWordsInString_UsingSplitTrim(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		return str.trim().split(" ").length;
+			
 	}
 
 	private static void _27_StringPoolConcept() {
@@ -147,8 +158,6 @@ public class _01_PracticeJava {
 		System.out.println(str1==str3);
 		System.out.println(str1.equals(str2));
 		System.out.println(str1.equals(str3));
-		
-
 	}
 
 	private static int _26_secondSmallestNumberArray_UsingTreeSet(int[] arr) {
