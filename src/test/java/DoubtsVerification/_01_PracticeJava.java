@@ -167,13 +167,32 @@ public class _01_PracticeJava {
 //		String str = "  geeks for geeks   "; // gfg
 //		_34_firstLetterOfEachWordString(str);
 
-		String str1 = "abcdbeghef"; // 6
-		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
-		String str3 = "eddy"; // 2
-		_35_longestSubstringWithoutRepeatingCharacters(str1);
-		_35_longestSubstringWithoutRepeatingCharacters(str2);
-		_35_longestSubstringWithoutRepeatingCharacters(str3);
+//		String str1 = "abcdbeghef"; // 6
+//		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
+//		String str3 = "eddy"; // 2
+//		_35_longestSubstringWithoutRepeatingCharacters(str1);
+//		_35_longestSubstringWithoutRepeatingCharacters(str2);
+//		_35_longestSubstringWithoutRepeatingCharacters(str3);
 
+		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
+	}
+
+	private static List<Integer> _36_fibonacci_Series(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int a = 1, b = 1, sum = 0;
+		List<Integer> fib = new ArrayList<>();
+		for (int i = 1; i <= num; i++) {
+			fib.add(sum);
+			if (i == 2) {
+				sum = 1;
+			} else {
+				sum += a;
+				a = b;
+				b = sum;
+			}
+		}
+		return fib;
 	}
 
 	private static void _35_longestSubstringWithoutRepeatingCharacters(String str) {
