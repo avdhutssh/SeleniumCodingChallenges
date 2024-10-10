@@ -152,11 +152,27 @@ public class _01_PracticeJava {
 //		String str = "Geeks"; // skeeG
 //		System.out.println(_31_reverseString_UsingStack(str));
 
-		String str1 = "00000123569";// 123569
-		String str2 = "000012356090";// 12356090
+//		String str1 = "00000123569";// 123569
+//		String str2 = "000012356090";// 12356090
+//
+//		_32_removeLeadingZeros_UsingSubString(str1);
+//		_32_removeLeadingZeros_UsingSubString(str2);
+		
+		String str1 = "1230456000";   //1230456
+		String str2 = "00001230456000";   //00001230456
+		
+		_33_removeTrailingZeros_UsingSubString(str1);
+		_33_removeTrailingZeros_UsingSubString(str2);
+	}
 
-		_32_removeLeadingZeros_UsingSubString(str1);
-		_32_removeLeadingZeros_UsingSubString(str2);
+	private static void _33_removeTrailingZeros_UsingSubString(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		int end = str.length()-1;
+		while(end>=0 && str.charAt(end)=='0') {
+			end--;
+		}
+		System.out.println(str.substring(0,end+1));
 	}
 
 	private static void _32_removeLeadingZeros_UsingSubString(String str) {
