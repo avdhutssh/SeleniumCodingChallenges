@@ -126,13 +126,29 @@ public class _01_PracticeJava {
 //		System.out.println(_24_secondLargestNumberArray(arr1));
 //		System.out.println(_24_secondLargestNumberArray(arr2));
 
-		int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 3
-		int[] arr2 = { 500, 100, 10, 50, 300 }; // 50
+//		int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 3
+//		int[] arr2 = { 500, 100, 10, 50, 300 }; // 50
 //		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr1));
 //		System.out.println(_25_secondSmallestNumberArray_UsingHeap(arr2));
 
-		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr1));
-		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr2));
+//		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr1));
+//		System.out.println(_26_secondSmallestNumberArray_UsingTreeSet(arr2));
+		
+		_27_StringPoolConcept();
+	}
+
+	private static void _27_StringPoolConcept() {
+		
+		String str1 = "Avdhut";
+		String str2 = "Avdhut";
+		String str3 = new String("Avdhut");
+		
+		System.out.println(str1==str2);
+		System.out.println(str1==str3);
+		System.out.println(str1.equals(str2));
+		System.out.println(str1.equals(str3));
+		
+
 	}
 
 	private static int _26_secondSmallestNumberArray_UsingTreeSet(int[] arr) {
