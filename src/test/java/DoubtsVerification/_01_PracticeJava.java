@@ -176,14 +176,29 @@ public class _01_PracticeJava {
 
 //		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
 
-		int num1 = 153;
-		int num2 = 1634;
-		int num3 = 5767;
+//		int num1 = 153;
+//		int num2 = 1634;
+//		int num3 = 5767;
+//		System.out.println(_37_is_Armstrong_Number(num1));
+//		System.out.println(_37_is_Armstrong_Number(num2));
+//		System.out.println(_37_is_Armstrong_Number(num3));
 
-		System.out.println(_37_is_Armstrong_Number(num1));
-		System.out.println(_37_is_Armstrong_Number(num2));
-		System.out.println(_37_is_Armstrong_Number(num3));
+		int num1 = 456; // 654
+		int num2 = 899; // 998
+		System.out.println(_38_ReverseNumber(num1));
+		System.out.println(_38_ReverseNumber(num2));
+	}
 
+	private static int _38_ReverseNumber(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int reverseNum = 0;
+		while (num != 0) {
+			int reminder = num % 10;
+			reverseNum = reverseNum * 10 + reminder;
+			num /= 10;
+		}
+		return reverseNum;
 	}
 
 	private static boolean _37_is_Armstrong_Number(int num) {
@@ -197,7 +212,7 @@ public class _01_PracticeJava {
 			sum += Math.pow(digit, power);
 			num /= 10;
 		}
-		return originNum==sum;
+		return originNum == sum;
 	}
 
 	private static List<Integer> _36_fibonacci_Series(int num) {
