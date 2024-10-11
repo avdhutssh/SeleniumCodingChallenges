@@ -183,10 +183,32 @@ public class _01_PracticeJava {
 //		System.out.println(_37_is_Armstrong_Number(num2));
 //		System.out.println(_37_is_Armstrong_Number(num3));
 
-		int num1 = 456; // 654
-		int num2 = 899; // 998
-		System.out.println(_38_ReverseNumber(num1));
-		System.out.println(_38_ReverseNumber(num2));
+//		int num1 = 456; // 654
+//		int num2 = 899; // 998
+//		System.out.println(_38_ReverseNumber(num1));
+//		System.out.println(_38_ReverseNumber(num2));
+
+		int num1 = 2; // true
+		int num2 = 23; // true
+		int num3 = 55; // false
+		System.out.println(_39_isPrime(num1));
+		System.out.println(_39_isPrime(num2));
+		System.out.println(_39_isPrime(num3));
+	}
+
+	private static boolean _39_isPrime(int num) {
+		// Time complexity: O(sqrt(n))
+		// Space complexity: O(1)
+		if (num == 2)
+			return true;
+		else if (num == 1 || num % 2 == 0)
+			return false;
+		for (int i = 3; i <= Math.sqrt(num); i += 2) {
+			if (num % i == 0)
+				return false;
+		}
+		return true;
+
 	}
 
 	private static int _38_ReverseNumber(int num) {
