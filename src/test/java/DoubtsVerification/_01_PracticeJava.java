@@ -188,12 +188,26 @@ public class _01_PracticeJava {
 //		System.out.println(_38_ReverseNumber(num1));
 //		System.out.println(_38_ReverseNumber(num2));
 
-		int num1 = 2; // true
-		int num2 = 23; // true
-		int num3 = 55; // false
-		System.out.println(_39_isPrime(num1));
-		System.out.println(_39_isPrime(num2));
-		System.out.println(_39_isPrime(num3));
+//		int num1 = 2; // true
+//		int num2 = 23; // true
+//		int num3 = 55; // false
+//		System.out.println(_39_isPrime(num1));
+//		System.out.println(_39_isPrime(num2));
+//		System.out.println(_39_isPrime(num3));
+
+		String str = "The best of both worlds"; // 19
+		System.out.println(_40_countNumber_Of_Characters_In_String_Using_BFA(str));
+
+	}
+
+	private static int _40_countNumber_Of_Characters_In_String_Using_BFA(String str) {
+
+		int count = 0;
+		for (char ch : str.toCharArray()) {
+			if (ch != ' ')
+				count++;
+		}
+		return count;
 	}
 
 	private static boolean _39_isPrime(int num) {
