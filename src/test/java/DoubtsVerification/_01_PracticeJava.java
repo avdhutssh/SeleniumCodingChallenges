@@ -195,10 +195,28 @@ public class _01_PracticeJava {
 //		System.out.println(_39_isPrime(num2));
 //		System.out.println(_39_isPrime(num3));
 
-		String str = "The best of both worlds"; // 19
-		System.out.println(_40_countNumber_Of_Characters_In_String_Using_BFA(str));
-		System.out.println(_41_countNumber_Of_Characters_In_String_Using_Stream(str));
+//		String str = "The best of both worlds"; // 19
+//		System.out.println(_40_countNumber_Of_Characters_In_String_Using_BFA(str));
+//		System.out.println(_41_countNumber_Of_Characters_In_String_Using_Stream(str));
 
+		String str = "Great responsibility "; // r e t s i
+		System.out.println(_42_duplicatesInString_UsingHashSet(str));
+	}
+
+	private static HashSet<Character> _42_duplicatesInString_UsingHashSet(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashSet<Character> hs = new HashSet<>();
+		HashSet<Character> duplicates = new HashSet<>();
+
+		for (char ch : str.toCharArray()) {
+			if (ch != ' ') {
+				if (!hs.add(ch)) {
+					duplicates.add(ch);
+				}
+			}
+		}
+		return duplicates;
 	}
 
 	private static long _41_countNumber_Of_Characters_In_String_Using_Stream(String str) {
