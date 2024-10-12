@@ -197,11 +197,22 @@ public class _01_PracticeJava {
 
 		String str = "The best of both worlds"; // 19
 		System.out.println(_40_countNumber_Of_Characters_In_String_Using_BFA(str));
+		System.out.println(_41_countNumber_Of_Characters_In_String_Using_Stream(str));
 
 	}
 
-	private static int _40_countNumber_Of_Characters_In_String_Using_BFA(String str) {
+	private static long _41_countNumber_Of_Characters_In_String_Using_Stream(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		return str.chars().filter(ch -> ch != ' ').count();
+	}
 
+	private static int _40_countNumber_Of_Characters_In_String_Using_BFA(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		if (str.length() == 0 || str.isEmpty()) {
+			return 0;
+		}
 		int count = 0;
 		for (char ch : str.toCharArray()) {
 			if (ch != ' ')
