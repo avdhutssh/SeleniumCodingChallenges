@@ -199,8 +199,24 @@ public class _01_PracticeJava {
 //		System.out.println(_40_countNumber_Of_Characters_In_String_Using_BFA(str));
 //		System.out.println(_41_countNumber_Of_Characters_In_String_Using_Stream(str));
 
-		String str = "Great responsibility "; // r e t s i
-		System.out.println(_42_duplicatesInString_UsingHashSet(str));
+//		String str = "Great responsibility "; // r e t s i
+//		System.out.println(_42_duplicatesInString_UsingHashSet(str));
+
+		int num1 = 12;
+		int num2 = 24;
+		_43_swapTwoNumbers_Using_Temp_Variable(num1, num2);
+	}
+
+	private static void _43_swapTwoNumbers_Using_Temp_Variable(int num1, int num2) {
+		// Time complexity: O(1)
+		// Space complexity: O(1)
+		System.out.println("Num1 is : " + num1 + " & Num2 is : " + num2);
+		int temp = num1;
+		num1 = num2;
+		num2 = temp;
+
+		System.out.println("Num1 is : " + num1 + " & Num2 is : " + num2);
+
 	}
 
 	private static HashSet<Character> _42_duplicatesInString_UsingHashSet(String str) {
