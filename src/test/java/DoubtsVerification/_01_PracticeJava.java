@@ -205,6 +205,19 @@ public class _01_PracticeJava {
 		int num1 = 12;
 		int num2 = 24;
 		_43_swapTwoNumbers_Using_Temp_Variable(num1, num2);
+		_44_swapTwoNumbers_Without_Using_Temp_Variable(num1, num2);
+	}
+
+	private static void _44_swapTwoNumbers_Without_Using_Temp_Variable(int num1, int num2) {
+		// Time complexity: O(1)
+		// Space complexity: O(1)
+		System.out.println("Num1 is : " + num1 + " & Num2 is : " + num2);
+		num1 = num1 + num2;
+		num2 = num1 - num2;
+		num1 = num1 - num2;
+
+		System.out.println("Num1 is : " + num1 + " & Num2 is : " + num2);
+
 	}
 
 	private static void _43_swapTwoNumbers_Using_Temp_Variable(int num1, int num2) {
