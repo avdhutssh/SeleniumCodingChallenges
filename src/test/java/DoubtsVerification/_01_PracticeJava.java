@@ -15,6 +15,8 @@ import java.util.Set;
 import java.util.Stack;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class _01_PracticeJava {
@@ -222,10 +224,27 @@ public class _01_PracticeJava {
 		System.out.println("Using BFA: " + _48_countCapitalizedWordsInString_BFA(str1));
 		System.out.println("Using BFA: " + _48_countCapitalizedWordsInString_BFA(str2));
 
+		System.out.println("Using RegX: " + _49_countCapitalizedWordsInString_RegX(str1));
+		System.out.println("Using RegX: " + _49_countCapitalizedWordsInString_RegX(str2));
+		
+
+	}
+
+
+	private static int _49_countCapitalizedWordsInString_RegX(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int count = 0;
+		Matcher matcher = Pattern.compile("[A-Z]").matcher(str);
+		while (matcher.find()) {
+			count++;
+		}
+		return count;
 	}
 
 	private static int _48_countCapitalizedWordsInString_BFA(String str) {
-
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		int count = 0;
 		for (char ch : str.toCharArray()) {
 			if (Character.isUpperCase(ch))
