@@ -227,9 +227,15 @@ public class _01_PracticeJava {
 		System.out.println("Using RegX: " + _49_countCapitalizedWordsInString_RegX(str1));
 		System.out.println("Using RegX: " + _49_countCapitalizedWordsInString_RegX(str2));
 		
-
+		System.out.println("Using Stream: " + _50_countCapitalizedWordsInString_Stream(str1));
+		System.out.println("Using Stream: " + _50_countCapitalizedWordsInString_Stream(str2));
 	}
 
+	private static int _50_countCapitalizedWordsInString_Stream(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		return (int) str.chars().filter(ch -> Character.isUpperCase(ch)).count();
+	}
 
 	private static int _49_countCapitalizedWordsInString_RegX(String str) {
 		// Time complexity: O(n)
