@@ -233,8 +233,35 @@ public class _01_PracticeJava {
 //		int[] arr = { 4, 3, 25, 6, 7, 8, 9, 2, 3, 10 }; // 4
 //		System.out.println(_51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(arr));
 
-		String str = "a2b3c4"; // aabbbcccc
-		System.out.println("Using String Builder : " + _52_stringOutputAsPerIntStrCombination(str));
+//		String str = "a2b3c4"; // aabbbcccc
+//		System.out.println("Using String Builder : " + _52_stringOutputAsPerIntStrCombination(str));
+		
+		String str = "aayuipabcabcuioabcdefeg"; // 6
+		System.out.println(_53_longestConsecutiveOccurrenceOfCharactersInString(str));
+	}
+
+	private static int _53_longestConsecutiveOccurrenceOfCharactersInString(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		if (str == null || str.length() == 0) {
+            return 0;
+        }
+		
+		int count =1;
+		int max = 1;
+		for(int i =0; i<str.length()-1;i++) {
+			int num1 = (int)str.charAt(i);
+			int num2= (int)str.charAt(i+1);
+//			if (str.charAt(i) == str.charAt(i - 1)), start i from 1s
+			if(num2-num1==1) {
+				count++;
+			}else {
+				count =1;
+			}
+			max = Math.max(max, count);
+		}
+		
+		return max;
 	}
 
 	private static String _52_stringOutputAsPerIntStrCombination(String str) {
@@ -255,7 +282,8 @@ public class _01_PracticeJava {
 	}
 
 	private static int _51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(int[] arr) {
-
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		int count = 0;
 		int max = 0;
 		for (int i = 0; i < arr.length - 1; i++) {
