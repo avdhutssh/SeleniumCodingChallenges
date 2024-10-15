@@ -252,7 +252,7 @@ public class _01_PracticeJava {
 		for(int i =0; i<str.length()-1;i++) {
 			int num1 = (int)str.charAt(i);
 			int num2= (int)str.charAt(i+1);
-//			if (str.charAt(i) == str.charAt(i - 1)), start i from 1s
+//			if (str.charAt(i) == str.charAt(i - 1) + 1), start i from 1s
 			if(num2-num1==1) {
 				count++;
 			}else {
