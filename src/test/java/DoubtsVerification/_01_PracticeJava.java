@@ -210,8 +210,26 @@ public class _01_PracticeJava {
 //		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
 //		System.out.println(Arrays.toString(_45_reverseArray_Using_Temp_Array(arr)));
 
+//		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
+//		System.out.println(Arrays.toString(_46_reverseArray_Using_Two_Pointer(arr)));
+
 		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
-		System.out.println(Arrays.toString(_46_reverseArray_Using_Two_Pointer(arr)));
+		System.out.println(Arrays.toString(_47_reverseArray_Using_Stack(arr)));
+	}
+
+	private static char[] _47_reverseArray_Using_Stack(char[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		char[] reverseArr = new char[arr.length];
+		Stack<Character> st = new Stack<>();
+		for (char ch : arr) {
+			st.push(ch);
+		}
+		int index = 0;
+		while (!st.isEmpty()) {
+			reverseArr[index++] = st.pop();
+		}
+		return reverseArr;
 	}
 
 	private static char[] _46_reverseArray_Using_Two_Pointer(char[] arr) {
