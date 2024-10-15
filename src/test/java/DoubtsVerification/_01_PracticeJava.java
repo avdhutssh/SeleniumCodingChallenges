@@ -213,8 +213,25 @@ public class _01_PracticeJava {
 //		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
 //		System.out.println(Arrays.toString(_46_reverseArray_Using_Two_Pointer(arr)));
 
-		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
-		System.out.println(Arrays.toString(_47_reverseArray_Using_Stack(arr)));
+//		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
+//		System.out.println(Arrays.toString(_47_reverseArray_Using_Stack(arr)));
+
+		String str1 = "AvdhutSatishShirgaonkar"; // 3
+		String str2 = "UnderTaker Dead$%Man"; // 4
+
+		System.out.println("Using BFA: " + _48_countCapitalizedWordsInString_BFA(str1));
+		System.out.println("Using BFA: " + _48_countCapitalizedWordsInString_BFA(str2));
+
+	}
+
+	private static int _48_countCapitalizedWordsInString_BFA(String str) {
+
+		int count = 0;
+		for (char ch : str.toCharArray()) {
+			if (Character.isUpperCase(ch))
+				count++;
+		}
+		return count;
 	}
 
 	private static char[] _47_reverseArray_Using_Stack(char[] arr) {
