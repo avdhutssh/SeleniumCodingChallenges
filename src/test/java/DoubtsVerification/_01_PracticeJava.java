@@ -206,20 +206,38 @@ public class _01_PracticeJava {
 //		int num2 = 24;
 //		_43_swapTwoNumbers_Using_Temp_Variable(num1, num2);
 //		_44_swapTwoNumbers_Without_Using_Temp_Variable(num1, num2);
-		
+
+//		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
+//		System.out.println(Arrays.toString(_45_reverseArray_Using_Temp_Array(arr)));
+
 		char[] arr = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
-		System.out.println(Arrays.toString(_45_reverseArray_Using_Temp_Array(arr)));
+		System.out.println(Arrays.toString(_46_reverseArray_Using_Two_Pointer(arr)));
+	}
+
+	private static char[] _46_reverseArray_Using_Two_Pointer(char[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int left = 0;
+		int right = arr.length - 1;
+		while (left < right) {
+			char temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+			left++;
+			right--;
+		}
+		return arr;
 	}
 
 	private static char[] _45_reverseArray_Using_Temp_Array(char[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		char[] temp = new char[arr.length];
-		for(int i=0;i<arr.length;i++) {
-			temp[i] = arr[arr.length-1-i];
+		for (int i = 0; i < arr.length; i++) {
+			temp[i] = arr[arr.length - 1 - i];
 		}
 		return temp;
-		
+
 	}
 
 	private static void _44_swapTwoNumbers_Without_Using_Temp_Variable(int num1, int num2) {
