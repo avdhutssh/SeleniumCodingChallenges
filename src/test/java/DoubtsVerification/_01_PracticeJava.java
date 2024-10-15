@@ -230,9 +230,28 @@ public class _01_PracticeJava {
 //		System.out.println("Using Stream: " + _50_countCapitalizedWordsInString_Stream(str1));
 //		System.out.println("Using Stream: " + _50_countCapitalizedWordsInString_Stream(str2));
 
-		int[] arr = { 4, 3, 25, 6, 7, 8, 9, 2, 3, 10 }; // 4
-		System.out.println(_51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(arr));
+//		int[] arr = { 4, 3, 25, 6, 7, 8, 9, 2, 3, 10 }; // 4
+//		System.out.println(_51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(arr));
 
+		String str = "a2b3c4"; // aabbbcccc
+		System.out.println("Using String Builder : " + _52_stringOutputAsPerIntStrCombination(str));
+	}
+
+	private static String _52_stringOutputAsPerIntStrCombination(String str) {
+		// Time Complexity: O(n^2)
+		// Space Complexity: O(n)
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isAlphabetic(str.charAt(i))) {
+				sb.append(str.charAt(i));
+			} else {
+				int count = Character.getNumericValue(str.charAt(i));
+				for (int j = 1; j < count; j++) {
+					sb.append(str.charAt(i - 1));
+				}
+			}
+		}
+		return sb.toString();
 	}
 
 	private static int _51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(int[] arr) {
@@ -245,7 +264,7 @@ public class _01_PracticeJava {
 			else
 				count = 0;
 
-			max = Math.max(max, count+1);
+			max = Math.max(max, count + 1);
 		}
 
 		return max;
