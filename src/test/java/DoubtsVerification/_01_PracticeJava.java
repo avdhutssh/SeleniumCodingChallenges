@@ -235,32 +235,53 @@ public class _01_PracticeJava {
 
 //		String str = "a2b3c4"; // aabbbcccc
 //		System.out.println("Using String Builder : " + _52_stringOutputAsPerIntStrCombination(str));
-		
-		String str = "aayuipabcabcuioabcdefeg"; // 6
-		System.out.println(_53_longestConsecutiveOccurrenceOfCharactersInString(str));
+
+//		String str = "aayuipabcabcuioabcdefeg"; // 6
+//		System.out.println(_53_longestConsecutiveOccurrenceOfCharactersInString(str));
+
+		int[] arr = { 10, 3, 5, 6, 2 }; // Output: prod[] = {180, 600, 360, 300, 900}
+
+		System.out.println("Using BFA : " + Arrays.toString(_54_productOfAnArrayExceptSelf_BFA(arr)));
+
+	}
+
+	private static int[] _54_productOfAnArrayExceptSelf_BFA(int[] arr) {
+		// Time Complexity: O(n^2)
+		// Space Complexity: O(n)
+		int[] prod = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int num = 1;
+			for (int j = 0; j < arr.length; j++) {
+				if (j != i) {
+					num *= arr[j];
+				}
+			}
+			prod[i] = num;
+		}
+		return prod;
 	}
 
 	private static int _53_longestConsecutiveOccurrenceOfCharactersInString(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		if (str == null || str.length() == 0) {
-            return 0;
-        }
-		
-		int count =1;
+			return 0;
+		}
+
+		int count = 1;
 		int max = 1;
-		for(int i =0; i<str.length()-1;i++) {
-			int num1 = (int)str.charAt(i);
-			int num2= (int)str.charAt(i+1);
+		for (int i = 0; i < str.length() - 1; i++) {
+			int num1 = (int) str.charAt(i);
+			int num2 = (int) str.charAt(i + 1);
 //			if (str.charAt(i) == str.charAt(i - 1) + 1), start i from 1s
-			if(num2-num1==1) {
+			if (num2 - num1 == 1) {
 				count++;
-			}else {
-				count =1;
+			} else {
+				count = 1;
 			}
 			max = Math.max(max, count);
 		}
-		
+
 		return max;
 	}
 
