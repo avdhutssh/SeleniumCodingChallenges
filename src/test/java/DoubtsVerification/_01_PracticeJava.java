@@ -259,12 +259,33 @@ public class _01_PracticeJava {
 
 //		_60_printNumbers1to100_WithoutUsingAnyLoop(1);
 
-		int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
+//		int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
 //		System.out.println("Using Brute Force Approach: " + Arrays.toString(_61_shiftAllZerosOnRight_BFA(arr1)));
 
-		System.out.println(
-				"Using In Place Approach: " + Arrays.toString(_62_shiftAllZerosOnRight_Using_InPlaceApproach(arr1)));
+//		System.out.println(
+//				"Using In Place Approach: " + Arrays.toString(_62_shiftAllZerosOnRight_Using_InPlaceApproach(arr1)));
 
+		int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 0, 0, 0, 0, 0, 1, 2, 3
+
+		System.out.println(
+				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
+
+	}
+
+	private static int[] _63_shiftAllZerosOnLeft_Using_InPlaceApproach(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int index = arr.length - 1;
+		for (int i = arr.length - 1; i >= 0; i--) {
+			if (arr[i] != 0) {
+				arr[index--] = arr[i];
+			}
+		}
+
+		while (index >= 0) {
+			arr[index--] = 0;
+		}
+		return arr;
 	}
 
 	private static int[] _62_shiftAllZerosOnRight_Using_InPlaceApproach(int[] arr) {
