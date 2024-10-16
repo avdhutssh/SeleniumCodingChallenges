@@ -58,7 +58,7 @@ public class _001_SwitchToWindow {
 	}
 
 	@Test
-	private void _01_Using_Stream_Array() {
+	private void _02_Using_Stream_Array() {
 		driver.manage().window().maximize();
 		driver.get("https://demoqa.com/browser-windows");
 		WebElement windowBtn = driver.findElement(By.id("windowButton"));
