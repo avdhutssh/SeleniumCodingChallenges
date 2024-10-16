@@ -251,11 +251,22 @@ public class _01_PracticeJava {
 //		int[] arr = { 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1 }; // 5
 //		System.out.println(_58_maximumConsecutiveOnesInarray_BFA(arr));
 
-		int[] arr = { 5, 7, 7, 8, 8, 10 };
-		int target = 8; // Output: [3, 4]
+//		int[] arr = { 5, 7, 7, 8, 8, 10 };
+//		int target = 8; // Output: [3, 4]
+//
+//		System.out.println("Using Linear Iteration: "
+//				+ Arrays.toString(_59_first_LastPositionOfNumberInarray_Using_LinearIteration(arr, target)));
 
-		System.out.println("Using Linear Iteration: "
-				+ Arrays.toString(_59_first_LastPositionOfNumberInarray_Using_LinearIteration(arr, target)));
+		_60_printNumbers1to100_WithoutUsingAnyLoop(1);
+
+	}
+
+	private static void _60_printNumbers1to100_WithoutUsingAnyLoop(int num) {
+
+		if (num <= 100) {
+			System.out.print(num + " ");
+			_60_printNumbers1to100_WithoutUsingAnyLoop(num + 1);
+		}
 	}
 
 	private static int[] _59_first_LastPositionOfNumberInarray_Using_LinearIteration(int[] arr, int target) {
@@ -272,7 +283,7 @@ public class _01_PracticeJava {
 				last = i;
 			}
 		}
-		return new int[] {first,last};
+		return new int[] { first, last };
 	}
 
 	private static int _58_maximumConsecutiveOnesInarray_BFA(int[] arr) {
