@@ -244,10 +244,28 @@ public class _01_PracticeJava {
 //		System.out.println("Using BFA : " + Arrays.toString(_54_productOfAnArrayExceptSelf_BFA(arr)));
 //		System.out.println("Using Prefix and Suffix : " + Arrays.toString(_55_productOfAnArrayExceptSelf_PrefixSuffix(arr)));
 
-		int[] arr = { 1, 2, 3, 5, 6 }; // 4
-		System.out.println("Using BFA : " + _56_missingNumberInGivenArray_BFA(arr));
-		System.out.println("Using HashSet : " + _57_missingNumberInGivenArray_HashSet(arr));
+//		int[] arr = { 1, 2, 3, 5, 6 }; // 4
+//		System.out.println("Using BFA : " + _56_missingNumberInGivenArray_BFA(arr));
+//		System.out.println("Using HashSet : " + _57_missingNumberInGivenArray_HashSet(arr));
 
+		int[] arr = { 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1 }; // 5
+		System.out.println(_58_maximumConsecutiveOnesInarray_BFA(arr));
+	}
+
+	private static int _58_maximumConsecutiveOnesInarray_BFA(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int count = 0;
+		int max = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 1)
+				count++;
+			else
+				count = 0;
+			max = Math.max(max, count);
+		}
+
+		return max;
 	}
 
 	private static int _57_missingNumberInGivenArray_HashSet(int[] arr) {
