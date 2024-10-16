@@ -239,11 +239,26 @@ public class _01_PracticeJava {
 //		String str = "aayuipabcabcuioabcdefeg"; // 6
 //		System.out.println(_53_longestConsecutiveOccurrenceOfCharactersInString(str));
 
-		int[] arr = { 10, 3, 5, 6, 2 }; // Output: prod[] = {180, 600, 360, 300, 900}
+//		int[] arr = { 10, 3, 5, 6, 2 }; // Output: prod[] = {180, 600, 360, 300, 900}
+//
+//		System.out.println("Using BFA : " + Arrays.toString(_54_productOfAnArrayExceptSelf_BFA(arr)));
+//		System.out.println("Using Prefix and Suffix : " + Arrays.toString(_55_productOfAnArrayExceptSelf_PrefixSuffix(arr)));
 
-		System.out.println("Using BFA : " + Arrays.toString(_54_productOfAnArrayExceptSelf_BFA(arr)));
-		System.out.println("Using Prefix and Suffix : " + Arrays.toString(_55_productOfAnArrayExceptSelf_PrefixSuffix(arr)));
+		int[] arr = { 1, 2, 3, 5, 6 }; // 4
+		System.out.println("Using BFA : " + _56_missingNumberInGivenArray_BFA(arr));
 
+	}
+
+	private static int _56_missingNumberInGivenArray_BFA(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int totalLen = arr.length + 1;
+		int expectedSum = totalLen * (totalLen + 1) / 2;
+		int actualSum = 0;
+		for (int num : arr) {
+			actualSum += num;
+		}
+		return expectedSum - actualSum;
 	}
 
 	private static int[] _55_productOfAnArrayExceptSelf_PrefixSuffix(int[] arr) {
@@ -253,22 +268,22 @@ public class _01_PracticeJava {
 		int[] left = new int[arr.length];
 		int[] right = new int[arr.length];
 		int[] prod = new int[arr.length];
-		
-		left[0]= 1;
-		right[len-1]=1;
-		
-		for(int i=1;i<left.length;i++) {
-			left[i] = arr[i-1] * left[i-1];
+
+		left[0] = 1;
+		right[len - 1] = 1;
+
+		for (int i = 1; i < left.length; i++) {
+			left[i] = arr[i - 1] * left[i - 1];
 		}
-		
-		for(int i=len-2;i>=0;i--) {
-			right[i] = arr[i+1] * right[i+1];
+
+		for (int i = len - 2; i >= 0; i--) {
+			right[i] = arr[i + 1] * right[i + 1];
 		}
-		
-		for(int i=0;i<prod.length;i++) {
+
+		for (int i = 0; i < prod.length; i++) {
 			prod[i] = left[i] * right[i];
 		}
-		
+
 		return prod;
 	}
 
