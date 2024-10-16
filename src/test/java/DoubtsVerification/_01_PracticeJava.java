@@ -257,8 +257,23 @@ public class _01_PracticeJava {
 //		System.out.println("Using Linear Iteration: "
 //				+ Arrays.toString(_59_first_LastPositionOfNumberInarray_Using_LinearIteration(arr, target)));
 
-		_60_printNumbers1to100_WithoutUsingAnyLoop(1);
+//		_60_printNumbers1to100_WithoutUsingAnyLoop(1);
 
+		int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
+		System.out.println("Using Brute Force Approach: " + Arrays.toString(_61_shiftAllZerosOnRight_BFA(arr1)));
+	}
+
+	private static int[] _61_shiftAllZerosOnRight_BFA(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		int index = 0;
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] != 0) {
+				result[index++] = arr[i];
+			}
+		}
+		return result;
 	}
 
 	private static void _60_printNumbers1to100_WithoutUsingAnyLoop(int num) {
