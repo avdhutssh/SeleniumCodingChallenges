@@ -246,7 +246,23 @@ public class _01_PracticeJava {
 
 		int[] arr = { 1, 2, 3, 5, 6 }; // 4
 		System.out.println("Using BFA : " + _56_missingNumberInGivenArray_BFA(arr));
+		System.out.println("Using HashSet : " + _57_missingNumberInGivenArray_HashSet(arr));
 
+	}
+
+	private static int _57_missingNumberInGivenArray_HashSet(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		Set<Integer> hs = new HashSet<>();
+		for (int num : arr) {
+			hs.add(num);
+		}
+		for (int i = 1; i <= arr.length; i++) {
+			if (!hs.contains(i)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	private static int _56_missingNumberInGivenArray_BFA(int[] arr) {
