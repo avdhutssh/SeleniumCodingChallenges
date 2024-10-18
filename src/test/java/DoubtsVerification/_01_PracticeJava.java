@@ -2,11 +2,11 @@ package DoubtsVerification;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -265,10 +265,34 @@ public class _01_PracticeJava {
 //		System.out.println(
 //				"Using In Place Approach: " + Arrays.toString(_62_shiftAllZerosOnRight_Using_InPlaceApproach(arr1)));
 
-		int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 0, 0, 0, 0, 0, 1, 2, 3
+//		int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 0, 0, 0, 0, 0, 1, 2, 3
+//
+//		System.out.println(
+//				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
 
-		System.out.println(
-				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		list.add(44);
+		list.add(11);
+		list.add(22);
+		list.add(33);
+		// Max: 44 Min: 11
+
+		_64_Highest_Lowest_Values_List_BFA(list);
+
+	}
+
+	private static void _64_Highest_Lowest_Values_List_BFA(LinkedList<Integer> list) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int max = 0;
+		int min = list.get(0);
+		for (int num : list) {
+			if (num > max)
+				max = num;
+			else if (num < min)
+				min = num;
+		}
+		System.out.println("Max num: " + max + " Min num: " + min);
 
 	}
 
