@@ -270,15 +270,34 @@ public class _01_PracticeJava {
 //		System.out.println(
 //				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
 
-		LinkedList<Integer> list = new LinkedList<Integer>();
-		list.add(44);
-		list.add(11);
-		list.add(22);
-		list.add(33);
-		// Max: 44 Min: 11
+//		LinkedList<Integer> list = new LinkedList<Integer>();
+//		list.add(44);
+//		list.add(11);
+//		list.add(22);
+//		list.add(33);
+//		// Max: 44 Min: 11
+//
+//		_64_Highest_Lowest_Values_List_BFA(list);
 
-		_64_Highest_Lowest_Values_List_BFA(list);
+		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {3,2,1,4,5,6,7}
+		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {3,2,1,4,5,6}
 
+		System.out.println("Using Simple loop with temp : "
+				+ Arrays.toString(_65_Reverse_First_Half_Array_Simple_Iteration(arr1)));
+		System.out.println("Using Simple loop with temp : "
+				+ Arrays.toString(_65_Reverse_First_Half_Array_Simple_Iteration(arr2)));
+	}
+
+	private static int[] _65_Reverse_First_Half_Array_Simple_Iteration(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int pos = arr.length / 2;
+		for (int i = 0; i < pos - 1; i++) {
+			int temp = arr[i];
+			arr[i] = arr[pos - i - 1];
+			arr[pos - i - 1] = temp;
+		}
+		return arr;
 	}
 
 	private static void _64_Highest_Lowest_Values_List_BFA(LinkedList<Integer> list) {
