@@ -279,21 +279,48 @@ public class _01_PracticeJava {
 //
 //		_64_Highest_Lowest_Values_List_BFA(list);
 
-		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {3,2,1,4,5,6,7}
-		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {3,2,1,4,5,6}
+//		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {3,2,1,4,5,6,7}
+//		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {3,2,1,4,5,6}
 
 //		System.out.println("Using Simple loop with temp : "
 //				+ Arrays.toString(_65_Reverse_First_Half_Array_Simple_Iteration(arr1)));
 //		System.out.println("Using Simple loop with temp : "
 //				+ Arrays.toString(_65_Reverse_First_Half_Array_Simple_Iteration(arr2)));
 
-		System.out.println(
-				"Using Stack: " + Arrays.toString(_66_Reverse_First_Half_Array_Simple_Iteration_Using_Stack(arr1)));
-		System.out.println(
-				"Using Stack : " + Arrays.toString(_66_Reverse_First_Half_Array_Simple_Iteration_Using_Stack(arr2)));
+//		System.out.println(
+//				"Using Stack: " + Arrays.toString(_66_Reverse_First_Half_Array_Using_Stack(arr1)));
+//		System.out.println(
+//				"Using Stack : " + Arrays.toString(_66_Reverse_First_Half_Array_Using_Stack(arr2)));
+
+		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
+		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
+
+		System.out.println("Using Simple loop with temp : "
+				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr1)));
+		System.out.println("Using Simple loop with temp : "
+				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr2)));
+
 	}
 
-	private static int[] _66_Reverse_First_Half_Array_Simple_Iteration_Using_Stack(int[] arr) {
+	private static int[] _67_Reverse_Second_Half_Array_Simple_Iteration(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int mid = arr.length / 2;
+		if (arr.length % 2 == 1) {
+			mid = (arr.length / 2) + 1;
+		}
+		int j = mid;
+		for (int i = arr.length - 1; i > mid; i--) {
+			int temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
+			j++;
+
+		}
+		return arr;
+	}
+
+	private static int[] _66_Reverse_First_Half_Array_Using_Stack(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 
