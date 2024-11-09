@@ -91,8 +91,7 @@ public class _04_CheckingBrokenLinksInParallel {
 		for (String url : urls) {
 			executorService.submit(() -> validateUrl(url));
 		}
-		long endTime = System.currentTimeMillis();
-		
+		executorService.shutdownNow();
 		try {
 			if (!executorService.awaitTermination(1, TimeUnit.MINUTES)) {
 				executorService.shutdownNow();
@@ -101,7 +100,7 @@ public class _04_CheckingBrokenLinksInParallel {
 			executorService.shutdownNow();
 		}
 		
-		executorService.shutdown();
+		long endTime = System.currentTimeMillis();
 		System.out.println("Time taken with ThreadGroups : " + ((endTime - startTime) / 1000.0));
 		// Time taken: 60.017 seconds
 		driver.quit();
