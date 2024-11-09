@@ -43,6 +43,31 @@ public class _04_CheckingBrokenLinksInParallel {
 
 	}
 
+	@Test
+	public void verifyLinksParallely() {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.get("https://www.amazon.in");
+
+		List<WebElement> anchorLinks = driver.findElements(By.tagName("a"));
+		System.out.println("Total Links present on page: " + anchorLinks.size());
+
+		Set<String> urls = new HashSet<>();
+		for (WebElement link : anchorLinks) {
+			urls.add(link.getAttribute("href"));
+		}
+
+		System.out.println("Total Links after removing duplicates: " + urls.size());
+
+		long startTime = System.currentTimeMillis();
+		urls.parallelStream().forEach(e -> validateUrl(e)); // Time taken: 94.268 seconds
+		long endTime = System.currentTimeMillis();
+		System.out.println("Time taken parallely : " + ((endTime - startTime) / 1000.0));
+		driver.quit();
+
+	}
+
 
 	private void validateUrl(String url) {
 
