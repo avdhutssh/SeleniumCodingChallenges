@@ -68,6 +68,45 @@ public class _04_CheckingBrokenLinksInParallel {
 
 	}
 
+	@Test
+	public void verifyLinksWithThreadPool() {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.get("https://www.amazon.in");
+
+		List<WebElement> anchorLinks = driver.findElements(By.tagName("a"));
+		System.out.println("Total Links present on page: " + anchorLinks.size());
+
+		Set<String> urls = new HashSet<>();
+		for (WebElement link : anchorLinks) {
+			urls.add(link.getAttribute("href"));
+		}
+
+		System.out.println("Total Links after removing duplicates: " + urls.size());
+
+		int numThreads = 10;
+		ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
+		long startTime = System.currentTimeMillis();
+		for (String url : urls) {
+			executorService.submit(() -> validateUrl(url));
+		}
+		long endTime = System.currentTimeMillis();
+		
+		try {
+			if (!executorService.awaitTermination(1, TimeUnit.MINUTES)) {
+				executorService.shutdownNow();
+			}
+		} catch (InterruptedException e) {
+			executorService.shutdownNow();
+		}
+		
+		executorService.shutdown();
+		System.out.println("Time taken with ThreadGroups : " + ((endTime - startTime) / 1000.0));
+		// Time taken: 60.017 seconds
+		driver.quit();
+
+	}
 
 	private void validateUrl(String url) {
 
