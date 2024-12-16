@@ -1050,6 +1050,12 @@ public class _01_PracticeJava {
 		return hs.size() == str.length();
 	}
 
+//	String str1 = "abcdefg"; // should return true
+//	String str2 = "hello"; // should return false
+//	String str3 = ""; // should return true
+//	String str4 = "0123456789"; // should return true
+//	String str5 = "abacadaeaf"; // should return false
+	
 	private static boolean _15_Set_hasUniqueChars(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1083,7 +1089,8 @@ public class _01_PracticeJava {
 		return new int[] {};
 	}
 
-	private static List<List<String>> _12_Using_Hashmap_groupAnagrams(String[] strArr) {
+	private static List<List<String>> _12_Using_Hashmap_groupAnagrams(String[] strArr) { 
+		// { "eat", "tea", "tan", "ate", "nat", "bat" }
 		// Time complexity: O(NKlogK)
 		// Space complexity: O(NK)
 		HashMap<String, List<String>> anagramGroup = new HashMap<>();
@@ -1166,7 +1173,7 @@ public class _01_PracticeJava {
 
 	}
 
-	private static void _07_missingNumber(int[] arr) {
+	private static void _07_missingNumber(int[] arr) { //int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		int totalNum = arr.length + 1;
