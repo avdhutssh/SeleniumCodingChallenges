@@ -60,6 +60,7 @@ public class _01_PracticeJava {
 //		System.out.println(_12_Using_Hashmap_groupAnagrams(
 //				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
 //		// [[listen, silent], [triangle, integral], [garden, ranged]]
+
 //		System.out.println(
 //				Arrays.toString(_13_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
 //		// [0, 1]
@@ -1007,6 +1008,7 @@ public class _01_PracticeJava {
 		System.out.println(duplicates);
 	}
 
+	/**	int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; -> 10 3 20 4 5 1 */
 	private static void _18_frequencyOfEachElementArray(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1019,6 +1021,11 @@ public class _01_PracticeJava {
 
 	}
 
+	/**
+	 * int[] arr1 = { 1, 2, 3, 4, 5 }; int[] arr2 = { 2, 4, 6, 8, 10 }; int target =
+	 * 7; -> [5, 2] [3, 4] [1, 6]
+	 */
+	
 	private static List<int[]> _17_Set_findPairsFromTwoArrays(int[] arr1, int[] arr2, int target) {
 		// Time Complexity: O(n + m)
 		// Space Complexity: O(n + m)
@@ -1043,6 +1050,11 @@ public class _01_PracticeJava {
 		System.out.println();
 	}
 
+	/**
+	 * abcdefg -> true | hello -> false | String str3 = "" -> true |"0123456789"
+	 * ->true | "abacadaeaf"; -> false
+	 */
+
 	private static boolean _16_Set_Stream_hasUniqueChars(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1050,12 +1062,11 @@ public class _01_PracticeJava {
 		return hs.size() == str.length();
 	}
 
-//	String str1 = "abcdefg"; // should return true
-//	String str2 = "hello"; // should return false
-//	String str3 = ""; // should return true
-//	String str4 = "0123456789"; // should return true
-//	String str5 = "abacadaeaf"; // should return false
-	
+	/**
+	 * abcdefg -> true | hello -> false | String str3 = "" -> true |"0123456789"
+	 * ->true | "abacadaeaf"; -> false
+	 */
+
 	private static boolean _15_Set_hasUniqueChars(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1067,6 +1078,11 @@ public class _01_PracticeJava {
 		return true;
 	}
 
+	/**
+	 * List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); ->
+	 * [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	 */
+
 	private static List<Integer> _14_Set_removeDuplicates(List<Integer> myList) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1074,6 +1090,11 @@ public class _01_PracticeJava {
 		return new ArrayList<Integer>(hs);
 	}
 
+	/**
+	 * { 2, 7, 11, 15 }, 9 -> [0, 1] { 3, 2, 4 }, 6 -> [1, 2] { 3, 3 }, 6 -> [0, 1]
+	 * { 1, 2, 3, 4, 5 }, 1 -> [] { 1, 2, 3, 4, 5 }, 7 -> [2, 3] { 1, 2, 3, 4, 5 },3
+	 * -> [0, 1] {}, 0 -> []
+	 */
 	private static int[] _13_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1089,8 +1110,14 @@ public class _01_PracticeJava {
 		return new int[] {};
 	}
 
-	private static List<List<String>> _12_Using_Hashmap_groupAnagrams(String[] strArr) { 
-		// { "eat", "tea", "tan", "ate", "nat", "bat" }
+	/**
+	 * {"eat", "tea", "tan", "ate", "nat", "bat" } -> [[eat, tea, ate], [tan,
+	 * nat],[bat]] {"abc", "cba", "bac", "foo", "bar" } -> [[abc, cba, bac],
+	 * [foo],[bar]] {"listen", "silent", "triangle", "integral", "garden", "ranged"}
+	 * ->[[listen, silent], [triangle, integral], [garden, ranged]]
+	 */
+
+	private static List<List<String>> _12_Using_Hashmap_groupAnagrams(String[] strArr) {
 		// Time complexity: O(NKlogK)
 		// Space complexity: O(NK)
 		HashMap<String, List<String>> anagramGroup = new HashMap<>();
@@ -1109,6 +1136,10 @@ public class _01_PracticeJava {
 		return new ArrayList<List<String>>(anagramGroup.values());
 	}
 
+	/**
+	 * leetcode; -> l, hello -> h, aabbcc->null
+	 */
+
 	private static Character _11_HashMap_firstNonRepeatingChar(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1123,6 +1154,11 @@ public class _01_PracticeJava {
 		}
 		return null;
 	}
+
+	/**
+	 * int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
+	 * _10_HashMap_findDuplicatesInArray(nums); -> 2 1 4 3
+	 */
 
 	private static void _10_HashMap_findDuplicatesInArray(int[] nums) {
 		// Time complexity: O(n)
@@ -1139,6 +1175,11 @@ public class _01_PracticeJava {
 
 	}
 
+	/**
+	 * int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
+	 * _09_HashSeT_findDuplicatesInArray(nums); -> 2 1 4 3
+	 */
+
 	private static void _09_HashSeT_findDuplicatesInArray(int[] nums) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1150,6 +1191,11 @@ public class _01_PracticeJava {
 		}
 
 	}
+
+	/**
+	 * int[] array1 = { 1, 3, 5 }; int[] array2 = { 2, 4, 5, 6, 3 };
+	 * _08_HT_CommonElementsInArray(array1, array2); -> 3,5
+	 */
 
 	private static void _08_HT_CommonElementsInArray(int[] arr1, int[] arr2) {
 		// Time complexity: O(n+m)
@@ -1173,7 +1219,12 @@ public class _01_PracticeJava {
 
 	}
 
-	private static void _07_missingNumber(int[] arr) { //int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
+	/**
+	 * int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
+	 * _07_missingNumber(numbers);->4
+	 */
+
+	private static void _07_missingNumber(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		int totalNum = arr.length + 1;
@@ -1184,6 +1235,8 @@ public class _01_PracticeJava {
 		}
 		System.out.println("Missing Number is: " + (totalSum - actualSum));
 	}
+
+	/** _06_factorial(5); -> 120 */
 
 	private static void _06_factorial(int num) {
 		int result = 1;
@@ -1221,6 +1274,11 @@ public class _01_PracticeJava {
 		System.out.println("string entered is: " + c);
 	}
 
+	/**
+	 * int[] a = { 1, 4, 5, 7 }; int[] b = { 6, 4, 3, 7 };
+	 * _03_compareArrayAndFindCommon(a, b); -> 4 7
+	 */
+
 	public static void _03_compareArrayAndFindCommon(int[] a, int[] b) {
 
 		for (int i = 0; i < a.length; i++) {
@@ -1228,6 +1286,11 @@ public class _01_PracticeJava {
 				System.out.print(a[i] + " ");
 		}
 	}
+
+	/**
+	 * int[] arr1 = { 1, 4, 8, 15, 17 };
+	 * _02_MaxDiffBetweenAdjacentElementsInArr(arr1); -> 7
+	 */
 
 	private static int _02_MaxDiffBetweenAdjacentElementsInArr(int[] arr) {
 		// Time complexity: O(n)
@@ -1240,6 +1303,8 @@ public class _01_PracticeJava {
 
 		return maxDiff;
 	}
+
+	/** _01_multiply(5, 10); -> 50 */
 
 	private static int _01_multiply(int i, int j) {
 		// Time complexity: O(j)
