@@ -170,12 +170,12 @@ public class _01_PracticeJava {
 //		String str = "  geeks for geeks   "; // gfg
 //		_34_firstLetterOfEachWordString(str);
 
-		String str1 = "abcdbeghef"; // 6
-		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
-		String str3 = "eddy"; // 2
-		_35_longestSubstringWithoutRepeatingCharacters(str1);
-		_35_longestSubstringWithoutRepeatingCharacters(str2);
-		_35_longestSubstringWithoutRepeatingCharacters(str3);
+//		String str1 = "abcdbeghef"; // 6
+//		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
+//		String str3 = "eddy"; // 2
+//		_35_longestSubstringWithoutRepeatingCharacters(str1);
+//		_35_longestSubstringWithoutRepeatingCharacters(str2);
+//		_35_longestSubstringWithoutRepeatingCharacters(str3);
 
 //		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
 
@@ -304,6 +304,23 @@ public class _01_PracticeJava {
 //		String str1 = "  geeks for geeks   "; // gfg
 //		_68_firstLetterOfEachWordStringUsingArray(str1);
 
+		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {5, 4, 3, 2, 1, 6, 7 }
+		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {5, 4, 3, 2, 1, 6 }
+
+		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr1, 5)));
+		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr2, 5)));
+
+	}
+
+	private static int[] _69_Reverse_Array_upto_Given_Position(int[] arr, int pos) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		for (int i = 0; i < pos; i++) {
+			int temp = arr[i];
+			arr[i] = arr[pos - i - 1];
+			arr[pos - i - 1] = arr[i];
+		}
+		return arr;
 	}
 
 	private static void _68_firstLetterOfEachWordStringUsingArray(String str) {
@@ -314,6 +331,9 @@ public class _01_PracticeJava {
 			System.out.print(word.charAt(0) + " ");
 		}
 	}
+
+	// int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
+	// int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
 
 	private static int[] _67_Reverse_Second_Half_Array_Simple_Iteration(int[] arr) {
 		// Time Complexity: O(n)
@@ -379,6 +399,8 @@ public class _01_PracticeJava {
 
 	}
 
+	// int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 0, 0, 0, 0, 0, 1, 2, 3
+
 	private static int[] _63_shiftAllZerosOnLeft_Using_InPlaceApproach(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -395,6 +417,8 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	// int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
+
 	private static int[] _62_shiftAllZerosOnRight_Using_InPlaceApproach(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -410,6 +434,8 @@ public class _01_PracticeJava {
 		}
 		return arr;
 	}
+
+//		int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
 
 	private static int[] _61_shiftAllZerosOnRight_BFA(int[] arr) {
 		// Time Complexity: O(n)
@@ -431,6 +457,9 @@ public class _01_PracticeJava {
 			_60_printNumbers1to100_WithoutUsingAnyLoop(num + 1);
 		}
 	}
+
+	// int[] arr = { 5, 7, 7, 8, 8, 10 };
+	// int target = 8; // Output: [3, 4]
 
 	private static int[] _59_first_LastPositionOfNumberInarray_Using_LinearIteration(int[] arr, int target) {
 		// Time Complexity: O(n)
@@ -491,6 +520,8 @@ public class _01_PracticeJava {
 		}
 		return expectedSum - actualSum;
 	}
+
+	// int[] arr = { 10, 3, 5, 6, 2 }; // Output: prod[] = {180, 600, 360, 300, 900}
 
 	private static int[] _55_productOfAnArrayExceptSelf_PrefixSuffix(int[] arr) {
 		// Time Complexity: O(n)
