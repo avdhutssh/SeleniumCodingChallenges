@@ -170,12 +170,12 @@ public class _01_PracticeJava {
 //		String str = "  geeks for geeks   "; // gfg
 //		_34_firstLetterOfEachWordString(str);
 
-//		String str1 = "abcdbeghef"; // 6
-//		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
-//		String str3 = "eddy"; // 2
-//		_35_longestSubstringWithoutRepeatingCharacters(str1);
-//		_35_longestSubstringWithoutRepeatingCharacters(str2);
-//		_35_longestSubstringWithoutRepeatingCharacters(str3);
+		String str1 = "abcdbeghef"; // 6
+		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
+		String str3 = "eddy"; // 2
+		_35_longestSubstringWithoutRepeatingCharacters(str1);
+		_35_longestSubstringWithoutRepeatingCharacters(str2);
+		_35_longestSubstringWithoutRepeatingCharacters(str3);
 
 //		System.out.println(_36_fibonacci_Series(5)); // 0,1,1,2,3
 
@@ -311,7 +311,7 @@ public class _01_PracticeJava {
 		// Space Complexity: O(1)
 		String[] words = str.trim().split("\\s+");
 		for (String word : words) {
-			System.out.print(word.charAt(0)+" ");
+			System.out.print(word.charAt(0) + " ");
 		}
 	}
 
@@ -780,12 +780,17 @@ public class _01_PracticeJava {
 		return fib;
 	}
 
+//	String str1 = "abcdbeghef"; // 6
+//	String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
+//	String str3 = "eddy"; // 2
+
 	private static void _35_longestSubstringWithoutRepeatingCharacters(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 
 		int start = 0;
 		int max = 0;
+		int maxStart = 0;
 		HashMap<Character, Integer> hm = new HashMap<>();
 		for (int i = 0; i < str.length(); i++) {
 
@@ -793,10 +798,15 @@ public class _01_PracticeJava {
 				start = Math.max(start, hm.get(str.charAt(i)) + 1);
 			}
 			hm.put(str.charAt(i), i);
-			max = Math.max(max, i - start + 1);
+			if (i - start + 1 > max) {
+				max = i - start + 1;
+				maxStart = start;
+			}
 		}
 
-		System.out.println(max);
+		System.out.println("Length of Longest Substring: " + max);
+		System.out
+				.println("Longest Substring Without Repeating Characters: " + str.substring(maxStart, maxStart + max));
 	}
 
 	private static void _34_firstLetterOfEachWordString(String str) {
