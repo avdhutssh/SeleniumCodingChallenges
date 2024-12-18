@@ -167,8 +167,8 @@ public class _01_PracticeJava {
 //		_33_removeTrailingZeros_UsingSubString(str1);
 //		_33_removeTrailingZeros_UsingSubString(str2);
 
-		String str = "  geeks for geeks   "; // gfg
-		_34_firstLetterOfEachWordString(str);
+//		String str = "  geeks for geeks   "; // gfg
+//		_34_firstLetterOfEachWordString(str);
 
 //		String str1 = "abcdbeghef"; // 6
 //		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
@@ -301,6 +301,18 @@ public class _01_PracticeJava {
 //		System.out.println("Using Simple loop with temp : "
 //				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr2)));
 
+//		String str1 = "  geeks for geeks   "; // gfg
+//		_68_firstLetterOfEachWordStringUsingArray(str1);
+
+	}
+
+	private static void _68_firstLetterOfEachWordStringUsingArray(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		String[] words = str.trim().split("\\s+");
+		for (String word : words) {
+			System.out.print(word.charAt(0)+" ");
+		}
 	}
 
 	private static int[] _67_Reverse_Second_Half_Array_Simple_Iteration(int[] arr) {
@@ -793,7 +805,7 @@ public class _01_PracticeJava {
 		boolean isSpace = true;
 		for (char ch : str.toCharArray()) {
 			if (ch != ' ' && isSpace) {
-				System.out.print(ch+" ");
+				System.out.print(ch + " ");
 				isSpace = false;
 			}
 			if (ch == ' ') {
@@ -1005,7 +1017,7 @@ public class _01_PracticeJava {
 		System.out.println(duplicates);
 	}
 
-	/**	int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; -> 10 3 20 4 5 1 */
+	/** int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; -> 10 3 20 4 5 1 */
 	private static void _18_frequencyOfEachElementArray(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1022,7 +1034,7 @@ public class _01_PracticeJava {
 	 * int[] arr1 = { 1, 2, 3, 4, 5 }; int[] arr2 = { 2, 4, 6, 8, 10 }; int target =
 	 * 7; -> [5, 2] [3, 4] [1, 6]
 	 */
-	
+
 	private static List<int[]> _17_Set_findPairsFromTwoArrays(int[] arr1, int[] arr2, int target) {
 		// Time Complexity: O(n + m)
 		// Space Complexity: O(n + m)
