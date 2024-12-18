@@ -167,8 +167,8 @@ public class _01_PracticeJava {
 //		_33_removeTrailingZeros_UsingSubString(str1);
 //		_33_removeTrailingZeros_UsingSubString(str2);
 
-//		String str = "  geeks for geeks   "; // gfg
-//		_34_firstLetterOfEachWordString(str);
+		String str = "  geeks for geeks   "; // gfg
+		_34_firstLetterOfEachWordString(str);
 
 //		String str1 = "abcdbeghef"; // 6
 //		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
@@ -293,13 +293,13 @@ public class _01_PracticeJava {
 //		System.out.println(
 //				"Using Stack : " + Arrays.toString(_66_Reverse_First_Half_Array_Using_Stack(arr2)));
 
-		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
-		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
-
-		System.out.println("Using Simple loop with temp : "
-				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr1)));
-		System.out.println("Using Simple loop with temp : "
-				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr2)));
+//		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
+//		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
+//
+//		System.out.println("Using Simple loop with temp : "
+//				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr1)));
+//		System.out.println("Using Simple loop with temp : "
+//				+ Arrays.toString(_67_Reverse_Second_Half_Array_Simple_Iteration(arr2)));
 
 	}
 
@@ -455,7 +455,7 @@ public class _01_PracticeJava {
 
 	private static int _57_missingNumberInGivenArray_HashSet(int[] arr) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(1)
+		// Space Complexity: O(n)
 		Set<Integer> hs = new HashSet<>();
 		for (int num : arr) {
 			hs.add(num);
@@ -789,20 +789,17 @@ public class _01_PracticeJava {
 
 	private static void _34_firstLetterOfEachWordString(String str) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(n)
-
-		StringBuilder sb = new StringBuilder();
+		// Space Complexity: O(1)
 		boolean isSpace = true;
 		for (char ch : str.toCharArray()) {
 			if (ch != ' ' && isSpace) {
-				sb.append(ch);
+				System.out.print(ch+" ");
 				isSpace = false;
 			}
 			if (ch == ' ') {
 				isSpace = true;
 			}
 		}
-		System.out.println(sb);
 	}
 
 	private static void _33_removeTrailingZeros_UsingSubString(String str) {
@@ -965,7 +962,7 @@ public class _01_PracticeJava {
 
 	private static void _21_ReverseArrayUsing_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
-		// Space complexity: O(n)
+		// Space complexity: O(1)
 
 		int left = 0;
 		int right = arr.length - 1;
