@@ -9,6 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Set;
@@ -304,11 +305,33 @@ public class _01_PracticeJava {
 //		String str1 = "  geeks for geeks   "; // gfg
 //		_68_firstLetterOfEachWordStringUsingArray(str1);
 
-		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {5, 4, 3, 2, 1, 6, 7 }
-		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {5, 4, 3, 2, 1, 6 }
+//		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {5, 4, 3, 2, 1, 6, 7 }
+//		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {5, 4, 3, 2, 1, 6 }
+//
+//		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr1, 5)));
+//		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr2, 5)));
 
-		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr1, 5)));
-		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr2, 5)));
+		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; // 4,5
+
+		_70_ModeOfArray(nums);
+	}
+
+	private static void _70_ModeOfArray(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		Map<Integer, Integer> hm = new HashMap<>();
+		int maxCount = 0;
+		for (int num : arr) {
+			int count = hm.getOrDefault(num, 0) + 1;
+			hm.put(num, count);
+			maxCount = Math.max(maxCount, count);
+		}
+		for (Entry<Integer, Integer> entry : hm.entrySet()) {
+			if (entry.getValue() == maxCount) {
+				System.out.print(entry.getKey() + " ");
+
+			}
+		}
 
 	}
 
