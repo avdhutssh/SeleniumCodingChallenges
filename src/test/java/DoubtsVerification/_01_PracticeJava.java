@@ -946,16 +946,25 @@ public class _01_PracticeJava {
 	}
 
 	private static void _27_StringPoolConcept() {
-
+		/**
+		 * == checks for object reference 
+		 * if more than one same Strings are there then it will have only one object as String pool concept
+		 * if explicitly create new object String using new keyword, then it will have new object everytime
+		 * .equals() checks for content reference (Object doesn't matter, value is accountable)
+		 */
+		
 		String str1 = "Avdhut";
 		String str2 = "Avdhut";
 		String str3 = new String("Avdhut");
 
-		System.out.println(str1 == str2);
-		System.out.println(str1 == str3);
-		System.out.println(str1.equals(str2));
-		System.out.println(str1.equals(str3));
+		System.out.println(str1 == str2);  		// True
+		System.out.println(str1 == str3);  		// False
+		System.out.println(str1.equals(str2)); 	// True
+		System.out.println(str1.equals(str3)); 	// True
 	}
+
+	/** int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3
+	    int[] arr2 = { 500, 100, 10, 50, 300 }; -> 50 */
 
 	private static int _26_secondSmallestNumberArray_UsingTreeSet(int[] arr) {
 		// Time complexity: O(nlogn)
@@ -967,9 +976,12 @@ public class _01_PracticeJava {
 		return ts.higher(ts.first());
 	}
 
+	/** int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3
+		int[] arr2 = { 500, 100, 10, 50, 300 }; -> 50 */
+
 	private static int _25_secondSmallestNumberArray_UsingHeap(int[] arr) {
 		// Time complexity: O(nlogk)
-		// Space complexity: O(1)
+		// Space complexity: O(n)
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 		HashSet<Integer> unique = new HashSet<>();
 		for (int num : arr) {
@@ -982,6 +994,9 @@ public class _01_PracticeJava {
 		}
 		return maxHeap.peek();
 	}
+
+	/** int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 11
+		int[] arr2 = { 2, 100, 10, 50, 300 }; -> 100  */
 
 	private static int _24_secondLargestNumberArray(int[] arr) {
 		// Time complexity: O(n)
@@ -1003,6 +1018,8 @@ public class _01_PracticeJava {
 		return secondLargest;
 	}
 
+	/** int[] arr = new int[] { 5, 2, 8, 7, 1 }; -> 1 2 5 7 8 */
+
 	private static void _23_AscedingOrderArray_MaxHeap(int[] arr) {
 		// Time complexity: O(nlogn)
 		// Space complexity: O(n)
@@ -1020,6 +1037,8 @@ public class _01_PracticeJava {
 		System.out.println(Arrays.toString(arr));
 	}
 
+	/** int[] arr = new int[] { 5, 2, 8, 7, 1 }; -> 1 2 5 7 8 */
+
 	private static void _22_AscedingOrderArray_BubbleSort(int[] arr) {
 		// Time complexity: O(n^2)
 		// Space complexity: O(1)
@@ -1036,6 +1055,8 @@ public class _01_PracticeJava {
 
 	}
 
+	/** int[] arr = new int[] { 1, 2, 3, 4, 5 }; -> 5, 4, 3, 2, 1 */
+	
 	private static void _21_ReverseArrayUsing_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -1054,6 +1075,8 @@ public class _01_PracticeJava {
 
 	}
 
+	/** int[] arr = new int[] { 1, 2, 3, 4, 5 }; -> 5, 4, 3, 2, 1 */
+
 	private static void _20_ReverseArray_UsingStack(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -1066,6 +1089,8 @@ public class _01_PracticeJava {
 			System.out.print(st.pop() + " ");
 		}
 	}
+
+	/**	int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 } -> // 2 10 11 */
 
 	private static void _19_duplicateElementsArray(int[] arr) {
 		// Time complexity: O(n)
@@ -1082,6 +1107,7 @@ public class _01_PracticeJava {
 	}
 
 	/** int[] arr = { 10, 20, 20, 10, 10, 20, 5, 20 }; -> 10 3 20 4 5 1 */
+
 	private static void _18_frequencyOfEachElementArray(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
