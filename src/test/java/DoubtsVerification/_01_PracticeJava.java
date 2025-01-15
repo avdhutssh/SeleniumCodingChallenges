@@ -311,9 +311,9 @@ public class _01_PracticeJava {
 //		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr1, 5)));
 //		System.out.println(Arrays.toString(_69_Reverse_Array_upto_Given_Position(arr2, 5)));
 
-		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; // 4,5
-
-		_70_ModeOfArray(nums);
+//		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; // 4,5
+//
+//		_70_ModeOfArray(nums);
 	}
 
 	private static void _70_ModeOfArray(int[] arr) {
@@ -422,7 +422,7 @@ public class _01_PracticeJava {
 
 	}
 
-	// int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 0, 0, 0, 0, 0, 1, 2, 3
+	/** int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; -> 0, 0, 0, 0, 0, 1, 2, 3 */
 
 	private static int[] _63_shiftAllZerosOnLeft_Using_InPlaceApproach(int[] arr) {
 		// Time Complexity: O(n)
@@ -440,7 +440,7 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
-	// int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
+	/** int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; -> 1, 2, 3, 0, 0, 0, 0, 0 */
 
 	private static int[] _62_shiftAllZerosOnRight_Using_InPlaceApproach(int[] arr) {
 		// Time Complexity: O(n)
@@ -458,7 +458,7 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
-//		int[] arr1 = { 1, 0, 2, 0, 3, 0, 0, 0 }; // 1, 2, 3, 0, 0, 0, 0, 0
+	/** int[] arr = { 1, 0, 2, 0, 3, 0, 0, 0 }; -> 1, 2, 3, 0, 0, 0, 0, 0 */
 
 	private static int[] _61_shiftAllZerosOnRight_BFA(int[] arr) {
 		// Time Complexity: O(n)
@@ -481,8 +481,7 @@ public class _01_PracticeJava {
 		}
 	}
 
-	// int[] arr = { 5, 7, 7, 8, 8, 10 };
-	// int target = 8; // Output: [3, 4]
+	/**  int[] arr = { 5, 7, 7, 8, 8, 10 }; int target = 8; -> Output: [3, 4] */
 
 	private static int[] _59_first_LastPositionOfNumberInarray_Using_LinearIteration(int[] arr, int target) {
 		// Time Complexity: O(n)
@@ -501,6 +500,8 @@ public class _01_PracticeJava {
 		return new int[] { first, last };
 	}
 
+	/** int[] arr = { 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1 }; -> 5 */
+
 	private static int _58_maximumConsecutiveOnesInarray_BFA(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -517,6 +518,8 @@ public class _01_PracticeJava {
 		return max;
 	}
 
+	/** int[] arr = { 1, 2, 3, 5, 6 }; -> 4 */
+
 	private static int _57_missingNumberInGivenArray_HashSet(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
@@ -532,6 +535,8 @@ public class _01_PracticeJava {
 		return -1;
 	}
 
+	/** int[] arr = { 1, 2, 3, 5, 6 }; -> 4 */
+
 	private static int _56_missingNumberInGivenArray_BFA(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -544,7 +549,7 @@ public class _01_PracticeJava {
 		return expectedSum - actualSum;
 	}
 
-	// int[] arr = { 10, 3, 5, 6, 2 }; // Output: prod[] = {180, 600, 360, 300, 900}
+	/** int[] arr = { 10, 3, 5, 6, 2 }; -> prod[] = {180, 600, 360, 300, 900} */
 
 	private static int[] _55_productOfAnArrayExceptSelf_PrefixSuffix(int[] arr) {
 		// Time Complexity: O(n)
@@ -558,19 +563,21 @@ public class _01_PracticeJava {
 		right[len - 1] = 1;
 
 		for (int i = 1; i < left.length; i++) {
-			left[i] = arr[i - 1] * left[i - 1];
+			left[i] = arr[i - 1] * left[i - 1];     // [1,10,30,150,900]
 		}
 
 		for (int i = len - 2; i >= 0; i--) {
-			right[i] = arr[i + 1] * right[i + 1];
+			right[i] = arr[i + 1] * right[i + 1];   // [180,60,12,2,1]
 		}
 
 		for (int i = 0; i < prod.length; i++) {
-			prod[i] = left[i] * right[i];
+			prod[i] = left[i] * right[i];			// [180, 600, 360, 300, 900]
 		}
 
 		return prod;
 	}
+
+	/** int[] arr = { 10, 3, 5, 6, 2 }; -> prod[] = {180, 600, 360, 300, 900} */
 
 	private static int[] _54_productOfAnArrayExceptSelf_BFA(int[] arr) {
 		// Time Complexity: O(n^2)
@@ -587,6 +594,8 @@ public class _01_PracticeJava {
 		}
 		return prod;
 	}
+
+	/** String str = "aayuipabcabcuioabcdefeg"; -> 6 */
 
 	private static int _53_longestConsecutiveOccurrenceOfCharactersInString(String str) {
 		// Time complexity: O(n)
@@ -612,6 +621,8 @@ public class _01_PracticeJava {
 		return max;
 	}
 
+	/** String str = "a2b3c4"; -> aabbbcccc */
+
 	private static String _52_stringOutputAsPerIntStrCombination(String str) {
 		// Time Complexity: O(n^2)
 		// Space Complexity: O(n)
@@ -628,6 +639,8 @@ public class _01_PracticeJava {
 		}
 		return sb.toString();
 	}
+
+	/** int[] arr = { 4, 3, 25, 6, 7, 8, 9, 2, 3, 10 }; -> 4 */
 
 	private static int _51_longestConsecutiveOccurrenceOfIntegersInArray_BFA(int[] arr) {
 		// Time complexity: O(n)
@@ -646,11 +659,15 @@ public class _01_PracticeJava {
 		return max;
 	}
 
+	/** String str1 = "AvdhutSatishShirgaonkar"; -> 3 */
+
 	private static int _50_countCapitalizedWordsInString_Stream(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		return (int) str.chars().filter(ch -> Character.isUpperCase(ch)).count();
 	}
+
+	/** String str1 = "AvdhutSatishShirgaonkar"; -> 3 */
 
 	private static int _49_countCapitalizedWordsInString_RegX(String str) {
 		// Time complexity: O(n)
@@ -663,9 +680,11 @@ public class _01_PracticeJava {
 		return count;
 	}
 
+	/** String str1 = "AvdhutSatishShirgaonkar"; -> 3 */
+	
 	private static int _48_countCapitalizedWordsInString_BFA(String str) {
 		// Time complexity: O(n)
-		// Space complexity: O(n)
+		// Space complexity: O(1)
 		int count = 0;
 		for (char ch : str.toCharArray()) {
 			if (Character.isUpperCase(ch))
@@ -673,6 +692,8 @@ public class _01_PracticeJava {
 		}
 		return count;
 	}
+
+	/** char[] arr = { 'a', 'b', 'c', 'd', 'e' }; -> e d c b a */
 
 	private static char[] _47_reverseArray_Using_Stack(char[] arr) {
 		// Time complexity: O(n)
@@ -689,6 +710,8 @@ public class _01_PracticeJava {
 		return reverseArr;
 	}
 
+	/** char[] arr = { 'a', 'b', 'c', 'd', 'e' }; -> e d c b a */
+
 	private static char[] _46_reverseArray_Using_Two_Pointer(char[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -703,6 +726,8 @@ public class _01_PracticeJava {
 		}
 		return arr;
 	}
+
+	/** char[] arr = { 'a', 'b', 'c', 'd', 'e' }; -> e d c b a */
 
 	private static char[] _45_reverseArray_Using_Temp_Array(char[] arr) {
 		// Time complexity: O(n)
@@ -739,6 +764,8 @@ public class _01_PracticeJava {
 
 	}
 
+	/** String str = "Great responsibility "; -> r e t s i */
+
 	private static HashSet<Character> _42_duplicatesInString_UsingHashSet(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
@@ -755,11 +782,15 @@ public class _01_PracticeJava {
 		return duplicates;
 	}
 
+	/** String str = "The best of both worlds"; -> 19 */
+	
 	private static long _41_countNumber_Of_Characters_In_String_Using_Stream(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		return str.chars().filter(ch -> ch != ' ').count();
 	}
+
+	/** String str = "The best of both worlds"; -> 19 */
 
 	private static int _40_countNumber_Of_Characters_In_String_Using_BFA(String str) {
 		// Time complexity: O(n)
@@ -774,6 +805,11 @@ public class _01_PracticeJava {
 		}
 		return count;
 	}
+
+	/** int num1 = 2; -> true
+	 *  int num2 = 23; -> true
+	 *  int num3 = 55; -> false
+	 */
 
 	private static boolean _39_isPrime(int num) {
 		// Time complexity: O(sqrt(n))
@@ -790,6 +826,8 @@ public class _01_PracticeJava {
 
 	}
 
+	/** int num1 = 456; -> 654 */
+
 	private static int _38_ReverseNumber(int num) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -802,6 +840,11 @@ public class _01_PracticeJava {
 		return reverseNum;
 	}
 
+    /** int num1 = 153; -> True   1*1*1 + 5*5*5 + 3*3*3
+	 * int num2 = 1634;	-> True
+	 * int num3 = 5767;	-> False
+	*/
+	 
 	private static boolean _37_is_Armstrong_Number(int num) {
 		// Time complexity: O(d) d-> digits in num
 		// Space complexity: O(1)
@@ -816,9 +859,11 @@ public class _01_PracticeJava {
 		return originNum == sum;
 	}
 
+	/** _36_fibonacci_Series(5)); -> 0,1,1,2,3 */
+
 	private static List<Integer> _36_fibonacci_Series(int num) {
 		// Time complexity: O(n)
-		// Space complexity: O(1)
+		// Space complexity: O(n)
 		int a = 1, b = 1, sum = 0;
 		List<Integer> fib = new ArrayList<>();
 		for (int i = 1; i <= num; i++) {
@@ -834,9 +879,10 @@ public class _01_PracticeJava {
 		return fib;
 	}
 
-//	String str1 = "abcdbeghef"; // 6
-//	String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
-//	String str3 = "eddy"; // 2
+    /** String str1 = "abcdbeghef"; -> 6
+     * String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; -> 2
+	 * String str3 = "eddy"; -> 2
+	*/
 
 	private static void _35_longestSubstringWithoutRepeatingCharacters(String str) {
 		// Time complexity: O(n)
@@ -863,6 +909,8 @@ public class _01_PracticeJava {
 				.println("Longest Substring Without Repeating Characters: " + str.substring(maxStart, maxStart + max));
 	}
 
+	/** String str = "  geeks for geeks   "; -> gfg */
+
 	private static void _34_firstLetterOfEachWordString(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -878,6 +926,10 @@ public class _01_PracticeJava {
 		}
 	}
 
+	/** String str1 = "1230456000"; -> 1230456
+        String str2 = "00001230456000"; -> 00001230456
+	*/
+
 	private static void _33_removeTrailingZeros_UsingSubString(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
@@ -887,6 +939,10 @@ public class _01_PracticeJava {
 		}
 		System.out.println(str.substring(0, end + 1));
 	}
+
+	/** String str1 = "00000123569"; -> 123569
+	 *  String str2 = "000012356090"; -> 12356090 
+	 */
 
 	private static void _32_removeLeadingZeros_UsingSubString(String str) {
 		// Time Complexity: O(n)
@@ -898,6 +954,8 @@ public class _01_PracticeJava {
 			}
 		}
 	}
+
+	/** String str = "Geeks"; -> skeeG */
 
 	private static String _31_reverseString_UsingStack(String str) {
 		// Time Complexity: O(n)
@@ -912,6 +970,12 @@ public class _01_PracticeJava {
 		}
 		return reverseStr;
 	}
+
+	/**
+	 *  String str1 = "Madam"; // true
+		String str2 = "Avdhut"; // false
+		String str3 = "A man a plan a canal Panama";
+	 */
 
 	private static void _30_isPalindromeString_UsingBFA(String str) {
 		// Time Complexity: O(n)
@@ -930,6 +994,8 @@ public class _01_PracticeJava {
 			System.out.println("Given String is Not a Palindrome");
 	}
 
+		/** String str = "    India Is My Country"; -> 4 */
+	
 	private static int _29_countNumberOfWordsInString_Tokenizer(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -937,6 +1003,8 @@ public class _01_PracticeJava {
 		return strToken.countTokens();
 
 	}
+
+	/** String str = "    India Is My Country"; -> 4 */
 
 	private static int _28_countNumberOfWordsInString_UsingSplitTrim(String str) {
 		// Time Complexity: O(n)
@@ -952,7 +1020,7 @@ public class _01_PracticeJava {
 		 * if explicitly create new object String using new keyword, then it will have new object everytime
 		 * .equals() checks for content reference (Object doesn't matter, value is accountable)
 		 */
-		
+
 		String str1 = "Avdhut";
 		String str2 = "Avdhut";
 		String str3 = new String("Avdhut");
