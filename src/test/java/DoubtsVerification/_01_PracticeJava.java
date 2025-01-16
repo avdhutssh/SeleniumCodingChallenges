@@ -312,7 +312,12 @@ public class _01_PracticeJava {
 //		_70_ModeOfArray(nums);
 	}
 
+	/** int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; -> 4,5 */
+
 	private static void _70_ModeOfArray(int[] arr) {
+	/** The mode of an array is the value that appears most frequently in the array. 
+	 * If multiple values have the same highest frequency, then each of those values can be considered a mode
+	*/
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 		Map<Integer, Integer> hm = new HashMap<>();
@@ -331,6 +336,9 @@ public class _01_PracticeJava {
 
 	}
 
+	/** int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; pos=5 -> {5, 4, 3, 2, 1, 6, 7 }
+	 *  int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; pos=5 -> {5, 4, 3, 2, 1, 6 } */
+
 	private static int[] _69_Reverse_Array_upto_Given_Position(int[] arr, int pos) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -342,17 +350,19 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/** String str = "  geeks for geeks   "; -> gfg */
+
 	private static void _68_firstLetterOfEachWordStringUsingArray(String str) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(1)
+		// Space Complexity: O(n)
 		String[] words = str.trim().split("\\s+");
 		for (String word : words) {
 			System.out.print(word.charAt(0) + " ");
 		}
 	}
 
-	// int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
-	// int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
+	/** int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {1, 2, 3, 4, 7, 6, 5 }
+	 *  int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; -> {1, 2, 3, 6, 5, 4 } */
 
 	private static int[] _67_Reverse_Second_Half_Array_Simple_Iteration(int[] arr) {
 		// Time Complexity: O(n)
@@ -371,6 +381,9 @@ public class _01_PracticeJava {
 		}
 		return arr;
 	}
+
+	/** int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {3,2,1,4,5,6,7}
+	 *  int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; -> {3,2,1,4,5,6} */
 
 	private static int[] _66_Reverse_First_Half_Array_Using_Stack(int[] arr) {
 		// Time Complexity: O(n)
@@ -391,6 +404,9 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/** int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {3,2,1,4,5,6,7}
+	 *  int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; -> {3,2,1,4,5,6} */
+
 	private static int[] _65_Reverse_First_Half_Array_Simple_Iteration(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -405,11 +421,11 @@ public class _01_PracticeJava {
 
 	/** LinkedList<Integer> list = new LinkedList<>(Arrays.asList(44,11,22,33));
 	 * Output: Max: 44 Min: 11 */
-	
+
 	private static void _64_Highest_Lowest_Values_List_BFA(LinkedList<Integer> list) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
-		int max = 0;
+		int max = Integer.MIN_VALUE;
 		int min = list.get(0);
 		for (int num : list) {
 			if (num > max)
