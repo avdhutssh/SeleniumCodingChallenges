@@ -272,14 +272,10 @@ public class _01_PracticeJava {
 //		System.out.println(
 //				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
 
-//		LinkedList<Integer> list = new LinkedList<Integer>();
-//		list.add(44);
-//		list.add(11);
-//		list.add(22);
-//		list.add(33);
-//		// Max: 44 Min: 11
-//
-//		_64_Highest_Lowest_Values_List_BFA(list);
+		LinkedList<Integer> list = new LinkedList<>(Arrays.asList(44,11,22,33));
+		// Max: 44 Min: 11
+
+		_64_Highest_Lowest_Values_List_BFA(list);
 
 //		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {3,2,1,4,5,6,7}
 //		int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {3,2,1,4,5,6}
@@ -407,6 +403,9 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/** LinkedList<Integer> list = new LinkedList<>(Arrays.asList(44,11,22,33));
+	 * Output: Max: 44 Min: 11 */
+	
 	private static void _64_Highest_Lowest_Values_List_BFA(LinkedList<Integer> list) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
