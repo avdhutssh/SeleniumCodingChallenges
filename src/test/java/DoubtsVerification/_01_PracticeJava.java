@@ -311,7 +311,30 @@ public class _01_PracticeJava {
 //
 //		_70_ModeOfArray(nums);
 
-		_71_Sum_Of_All_Digits_Using_Iterative_Method(876); // 21
+//		_71_Sum_Of_All_Digits_Using_Iterative_Method(876); // 21
+
+		int[] nums1 = { 1, 3, 4, 2, 7, 5 }; // 3.5
+		int[] nums2 = { 3, 5, 1, 4, 2 }; // 3
+		_72_Median_Of_Array(nums1);
+		_72_Median_Of_Array(nums2);
+
+	}
+
+	/**
+	 * int[] nums1 = { 1, 3, 4, 2, 7, 5 }; -> 3.5 
+	 * int[] nums2 = { 3, 5, 1, 4, 2 }; -> 3
+	 */
+
+	private static void _72_Median_Of_Array(int[] nums) {
+		// Time Complexity: O(nlogn)
+		// Space Complexity: O(1)
+		Arrays.sort(nums);
+		int n = nums.length;
+		if (n % 2 == 1)
+			System.out.println("Median is : " + nums[n / 2]);
+		else
+			System.out.println("Median is : " + (nums[(n / 2) - 1] + nums[n / 2]) / 2.0);
+
 	}
 
 	/** 876 -> 21 */
