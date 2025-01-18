@@ -313,16 +313,44 @@ public class _01_PracticeJava {
 
 //		_71_Sum_Of_All_Digits_Using_Iterative_Method(876); // 21
 
-		int[] nums1 = { 1, 3, 4, 2, 7, 5 }; // 3.5
-		int[] nums2 = { 3, 5, 1, 4, 2 }; // 3
-		_72_Median_Of_Array(nums1);
-		_72_Median_Of_Array(nums2);
+//		int[] nums1 = { 1, 3, 4, 2, 7, 5 }; // 3.5
+//		int[] nums2 = { 3, 5, 1, 4, 2 }; // 3
+//		_72_Median_Of_Array(nums1);
+//		_72_Median_Of_Array(nums2);
+
+		int[] arr1 = { 1, 3, 5, 7 }, arr2 = { 2, 4, 6, 8 }; // [1, 3, 5, 7, 2, 4, 6, 8]
+		_73_Merge_Two_Arrays(arr1, arr2);
 
 	}
 
 	/**
-	 * int[] nums1 = { 1, 3, 4, 2, 7, 5 }; -> 3.5 
-	 * int[] nums2 = { 3, 5, 1, 4, 2 }; -> 3
+	 * int[] arr1 = { 1, 3, 5, 7 } int[] arr2 = { 2, 4, 6, 8 }; -> [1, 3, 5, 7, 2,
+	 * 4, 6, 8]
+	 */
+
+	private static void _73_Merge_Two_Arrays(int[] arr1, int[] arr2) {
+		// Time Complexity: O(n+m)
+		// Space Complexity: O(n+m)
+		int[] resultArrSimpleIteration = new int[arr1.length + arr2.length];
+		int index = 0;
+		for (int num : arr1) {
+			resultArrSimpleIteration[index++] = num;
+		}
+		for (int num : arr2) {
+			resultArrSimpleIteration[index++] = num;
+		}
+
+		int[] resultArrCopy = new int[arr1.length + arr2.length];
+		System.arraycopy(arr1, 0, resultArrCopy, 0, arr1.length);
+		System.arraycopy(arr2, 0, resultArrCopy, arr1.length, arr2.length);
+
+		System.out.println(Arrays.toString(resultArrSimpleIteration));
+		System.out.println(Arrays.toString(resultArrCopy));
+	}
+
+	/**
+	 * int[] nums1 = { 1, 3, 4, 2, 7, 5 }; -> 3.5 int[] nums2 = { 3, 5, 1, 4, 2 };
+	 * -> 3
 	 */
 
 	private static void _72_Median_Of_Array(int[] nums) {
