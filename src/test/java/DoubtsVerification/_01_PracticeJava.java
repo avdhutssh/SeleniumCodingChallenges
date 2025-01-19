@@ -318,8 +318,34 @@ public class _01_PracticeJava {
 //		_72_Median_Of_Array(nums1);
 //		_72_Median_Of_Array(nums2);
 
-		int[] arr1 = { 1, 3, 5, 7 }, arr2 = { 2, 4, 6, 8 }; // [1, 3, 5, 7, 2, 4, 6, 8]
-		_73_Merge_Two_Arrays(arr1, arr2);
+//		int[] arr1 = { 1, 3, 5, 7 }, arr2 = { 2, 4, 6, 8 }; // [1, 3, 5, 7, 2, 4, 6, 8]
+//		_73_Merge_Two_Arrays(arr1, arr2);
+
+		int[] arr = { 16, 17, 4, 3, 5, 2 }; // 17 5 2
+		_74_Leader_Of_Array_Using_Pointer_Simple_Iteration(arr);
+
+	}
+
+	/** int[] arr = { 16, 17, 4, 3, 5, 2 }; -> 17 5 2 */
+
+	private static void _74_Leader_Of_Array_Using_Pointer_Simple_Iteration(int[] arr) {
+		/**
+		 * A leader in an array is an element that is greater than all the elements to
+		 * its right side. The rightmost element is always a leader.
+		 */
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		int n = arr.length;
+		int maxRight = arr[n - 1];
+		System.out.print(maxRight + " ");
+
+		for (int i = n - 2; i >= 0; i--) {
+			if (arr[i] > maxRight) {
+				maxRight = arr[i];
+				System.out.print(maxRight + " ");
+			}
+		}
 
 	}
 
