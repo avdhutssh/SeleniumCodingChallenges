@@ -272,13 +272,9 @@ public class _01_PracticeJava {
 //		System.out.println(
 //				"Using In Place Approach: " + Arrays.toString(_63_shiftAllZerosOnLeft_Using_InPlaceApproach(arr)));
 
-//		LinkedList<Integer> list = new LinkedList<Integer>();
-//		list.add(44);
-//		list.add(11);
-//		list.add(22);
-//		list.add(33);
-//		// Max: 44 Min: 11
-//
+//		LinkedList<Integer> list = new LinkedList<>(Arrays.asList(44,11,22,33));
+		// Max: 44 Min: 11
+
 //		_64_Highest_Lowest_Values_List_BFA(list);
 
 //		int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {3,2,1,4,5,6,7}
@@ -314,9 +310,109 @@ public class _01_PracticeJava {
 //		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; // 4,5
 //
 //		_70_ModeOfArray(nums);
+
+//		_71_Sum_Of_All_Digits_Using_Iterative_Method(876); // 21
+
+//		int[] nums1 = { 1, 3, 4, 2, 7, 5 }; // 3.5
+//		int[] nums2 = { 3, 5, 1, 4, 2 }; // 3
+//		_72_Median_Of_Array(nums1);
+//		_72_Median_Of_Array(nums2);
+
+//		int[] arr1 = { 1, 3, 5, 7 }, arr2 = { 2, 4, 6, 8 }; // [1, 3, 5, 7, 2, 4, 6, 8]
+//		_73_Merge_Two_Arrays(arr1, arr2);
+
+		int[] arr = { 16, 17, 4, 3, 5, 2 }; // 17 5 2
+		_74_Leader_Of_Array_Using_Pointer_Simple_Iteration(arr);
+
 	}
 
+	/** int[] arr = { 16, 17, 4, 3, 5, 2 }; -> 17 5 2 */
+
+	private static void _74_Leader_Of_Array_Using_Pointer_Simple_Iteration(int[] arr) {
+		/**
+		 * A leader in an array is an element that is greater than all the elements to
+		 * its right side. The rightmost element is always a leader.
+		 */
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		int n = arr.length;
+		int maxRight = arr[n - 1];
+		System.out.print(maxRight + " ");
+
+		for (int i = n - 2; i >= 0; i--) {
+			if (arr[i] > maxRight) {
+				maxRight = arr[i];
+				System.out.print(maxRight + " ");
+			}
+		}
+
+	}
+
+	/**
+	 * int[] arr1 = { 1, 3, 5, 7 } int[] arr2 = { 2, 4, 6, 8 }; -> [1, 3, 5, 7, 2,
+	 * 4, 6, 8]
+	 */
+
+	private static void _73_Merge_Two_Arrays(int[] arr1, int[] arr2) {
+		// Time Complexity: O(n+m)
+		// Space Complexity: O(n+m)
+		int[] resultArrSimpleIteration = new int[arr1.length + arr2.length];
+		int index = 0;
+		for (int num : arr1) {
+			resultArrSimpleIteration[index++] = num;
+		}
+		for (int num : arr2) {
+			resultArrSimpleIteration[index++] = num;
+		}
+
+		int[] resultArrCopy = new int[arr1.length + arr2.length];
+		System.arraycopy(arr1, 0, resultArrCopy, 0, arr1.length);
+		System.arraycopy(arr2, 0, resultArrCopy, arr1.length, arr2.length);
+
+		System.out.println(Arrays.toString(resultArrSimpleIteration));
+		System.out.println(Arrays.toString(resultArrCopy));
+	}
+
+	/**
+	 * int[] nums1 = { 1, 3, 4, 2, 7, 5 }; -> 3.5 int[] nums2 = { 3, 5, 1, 4, 2 };
+	 * -> 3
+	 */
+
+	private static void _72_Median_Of_Array(int[] nums) {
+		// Time Complexity: O(nlogn)
+		// Space Complexity: O(1)
+		Arrays.sort(nums);
+		int n = nums.length;
+		if (n % 2 == 1)
+			System.out.println("Median is : " + nums[n / 2]);
+		else
+			System.out.println("Median is : " + (nums[(n / 2) - 1] + nums[n / 2]) / 2.0);
+
+	}
+
+	/** 876 -> 21 */
+
+	private static void _71_Sum_Of_All_Digits_Using_Iterative_Method(int num) {
+		// Time Complexity: O(d) , d -> number of digits in number
+		// Space Complexity: O(n)
+		int sum = 0;
+		while (num != 0) {
+			sum += num % 10;
+			num /= 10;
+		}
+		System.out.println(sum);
+
+	}
+
+	/** int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; -> 4,5 */
+
 	private static void _70_ModeOfArray(int[] arr) {
+		/**
+		 * The mode of an array is the value that appears most frequently in the array.
+		 * If multiple values have the same highest frequency, then each of those values
+		 * can be considered a mode
+		 */
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 		Map<Integer, Integer> hm = new HashMap<>();
@@ -335,6 +431,11 @@ public class _01_PracticeJava {
 
 	}
 
+	/**
+	 * int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; pos=5 -> {5, 4, 3, 2, 1, 6, 7
+	 * } int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; pos=5 -> {5, 4, 3, 2, 1, 6 }
+	 */
+
 	private static int[] _69_Reverse_Array_upto_Given_Position(int[] arr, int pos) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -346,17 +447,21 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/** String str = " geeks for geeks "; -> gfg */
+
 	private static void _68_firstLetterOfEachWordStringUsingArray(String str) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(1)
+		// Space Complexity: O(n)
 		String[] words = str.trim().split("\\s+");
 		for (String word : words) {
 			System.out.print(word.charAt(0) + " ");
 		}
 	}
 
-	// int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // {1, 2, 3, 4, 7, 6, 5 }
-	// int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; // {1, 2, 3, 6, 5, 4 }
+	/**
+	 * int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {1, 2, 3, 4, 7, 6, 5 }
+	 * int[] arr2 = new int[] { 1, 2, 3, 4, 5, 6 }; -> {1, 2, 3, 6, 5, 4 }
+	 */
 
 	private static int[] _67_Reverse_Second_Half_Array_Simple_Iteration(int[] arr) {
 		// Time Complexity: O(n)
@@ -375,6 +480,11 @@ public class _01_PracticeJava {
 		}
 		return arr;
 	}
+
+	/**
+	 * int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {3,2,1,4,5,6,7} int[] arr2
+	 * = new int[] { 1, 2, 3, 4, 5, 6 }; -> {3,2,1,4,5,6}
+	 */
 
 	private static int[] _66_Reverse_First_Half_Array_Using_Stack(int[] arr) {
 		// Time Complexity: O(n)
@@ -395,6 +505,11 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/**
+	 * int[] arr1 = new int[] { 1, 2, 3, 4, 5, 6, 7 }; -> {3,2,1,4,5,6,7} int[] arr2
+	 * = new int[] { 1, 2, 3, 4, 5, 6 }; -> {3,2,1,4,5,6}
+	 */
+
 	private static int[] _65_Reverse_First_Half_Array_Simple_Iteration(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -407,10 +522,15 @@ public class _01_PracticeJava {
 		return arr;
 	}
 
+	/**
+	 * LinkedList<Integer> list = new LinkedList<>(Arrays.asList(44,11,22,33));
+	 * Output: Max: 44 Min: 11
+	 */
+
 	private static void _64_Highest_Lowest_Values_List_BFA(LinkedList<Integer> list) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
-		int max = 0;
+		int max = Integer.MIN_VALUE;
 		int min = list.get(0);
 		for (int num : list) {
 			if (num > max)
@@ -481,7 +601,7 @@ public class _01_PracticeJava {
 		}
 	}
 
-	/**  int[] arr = { 5, 7, 7, 8, 8, 10 }; int target = 8; -> Output: [3, 4] */
+	/** int[] arr = { 5, 7, 7, 8, 8, 10 }; int target = 8; -> Output: [3, 4] */
 
 	private static int[] _59_first_LastPositionOfNumberInarray_Using_LinearIteration(int[] arr, int target) {
 		// Time Complexity: O(n)
@@ -563,15 +683,15 @@ public class _01_PracticeJava {
 		right[len - 1] = 1;
 
 		for (int i = 1; i < left.length; i++) {
-			left[i] = arr[i - 1] * left[i - 1];     // [1,10,30,150,900]
+			left[i] = arr[i - 1] * left[i - 1]; // [1,10,30,150,900]
 		}
 
 		for (int i = len - 2; i >= 0; i--) {
-			right[i] = arr[i + 1] * right[i + 1];   // [180,60,12,2,1]
+			right[i] = arr[i + 1] * right[i + 1]; // [180,60,12,2,1]
 		}
 
 		for (int i = 0; i < prod.length; i++) {
-			prod[i] = left[i] * right[i];			// [180, 600, 360, 300, 900]
+			prod[i] = left[i] * right[i]; // [180, 600, 360, 300, 900]
 		}
 
 		return prod;
@@ -681,7 +801,7 @@ public class _01_PracticeJava {
 	}
 
 	/** String str1 = "AvdhutSatishShirgaonkar"; -> 3 */
-	
+
 	private static int _48_countCapitalizedWordsInString_BFA(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -783,7 +903,7 @@ public class _01_PracticeJava {
 	}
 
 	/** String str = "The best of both worlds"; -> 19 */
-	
+
 	private static long _41_countNumber_Of_Characters_In_String_Using_Stream(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -806,9 +926,8 @@ public class _01_PracticeJava {
 		return count;
 	}
 
-	/** int num1 = 2; -> true
-	 *  int num2 = 23; -> true
-	 *  int num3 = 55; -> false
+	/**
+	 * int num1 = 2; -> true int num2 = 23; -> true int num3 = 55; -> false
 	 */
 
 	private static boolean _39_isPrime(int num) {
@@ -840,11 +959,11 @@ public class _01_PracticeJava {
 		return reverseNum;
 	}
 
-    /** int num1 = 153; -> True   1*1*1 + 5*5*5 + 3*3*3
-	 * int num2 = 1634;	-> True
-	 * int num3 = 5767;	-> False
-	*/
-	 
+	/**
+	 * int num1 = 153; -> True 1*1*1 + 5*5*5 + 3*3*3 int num2 = 1634; -> True int
+	 * num3 = 5767; -> False
+	 */
+
 	private static boolean _37_is_Armstrong_Number(int num) {
 		// Time complexity: O(d) d-> digits in num
 		// Space complexity: O(1)
@@ -879,10 +998,10 @@ public class _01_PracticeJava {
 		return fib;
 	}
 
-    /** String str1 = "abcdbeghef"; -> 6
-     * String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; -> 2
-	 * String str3 = "eddy"; -> 2
-	*/
+	/**
+	 * String str1 = "abcdbeghef"; -> 6 String str2 =
+	 * "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; -> 2 String str3 = "eddy"; -> 2
+	 */
 
 	private static void _35_longestSubstringWithoutRepeatingCharacters(String str) {
 		// Time complexity: O(n)
@@ -909,7 +1028,7 @@ public class _01_PracticeJava {
 				.println("Longest Substring Without Repeating Characters: " + str.substring(maxStart, maxStart + max));
 	}
 
-	/** String str = "  geeks for geeks   "; -> gfg */
+	/** String str = " geeks for geeks "; -> gfg */
 
 	private static void _34_firstLetterOfEachWordString(String str) {
 		// Time Complexity: O(n)
@@ -926,9 +1045,10 @@ public class _01_PracticeJava {
 		}
 	}
 
-	/** String str1 = "1230456000"; -> 1230456
-        String str2 = "00001230456000"; -> 00001230456
-	*/
+	/**
+	 * String str1 = "1230456000"; -> 1230456 String str2 = "00001230456000"; ->
+	 * 00001230456
+	 */
 
 	private static void _33_removeTrailingZeros_UsingSubString(String str) {
 		// Time Complexity: O(n)
@@ -940,8 +1060,9 @@ public class _01_PracticeJava {
 		System.out.println(str.substring(0, end + 1));
 	}
 
-	/** String str1 = "00000123569"; -> 123569
-	 *  String str2 = "000012356090"; -> 12356090 
+	/**
+	 * String str1 = "00000123569"; -> 123569 String str2 = "000012356090"; ->
+	 * 12356090
 	 */
 
 	private static void _32_removeLeadingZeros_UsingSubString(String str) {
@@ -972,9 +1093,8 @@ public class _01_PracticeJava {
 	}
 
 	/**
-	 *  String str1 = "Madam"; // true
-		String str2 = "Avdhut"; // false
-		String str3 = "A man a plan a canal Panama";
+	 * String str1 = "Madam"; // true String str2 = "Avdhut"; // false String str3 =
+	 * "A man a plan a canal Panama";
 	 */
 
 	private static void _30_isPalindromeString_UsingBFA(String str) {
@@ -994,8 +1114,8 @@ public class _01_PracticeJava {
 			System.out.println("Given String is Not a Palindrome");
 	}
 
-		/** String str = "    India Is My Country"; -> 4 */
-	
+	/** String str = " India Is My Country"; -> 4 */
+
 	private static int _29_countNumberOfWordsInString_Tokenizer(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
@@ -1004,7 +1124,7 @@ public class _01_PracticeJava {
 
 	}
 
-	/** String str = "    India Is My Country"; -> 4 */
+	/** String str = " India Is My Country"; -> 4 */
 
 	private static int _28_countNumberOfWordsInString_UsingSplitTrim(String str) {
 		// Time Complexity: O(n)
@@ -1015,24 +1135,27 @@ public class _01_PracticeJava {
 
 	private static void _27_StringPoolConcept() {
 		/**
-		 * == checks for object reference 
-		 * if more than one same Strings are there then it will have only one object as String pool concept
-		 * if explicitly create new object String using new keyword, then it will have new object everytime
-		 * .equals() checks for content reference (Object doesn't matter, value is accountable)
+		 * == checks for object reference if more than one same Strings are there then
+		 * it will have only one object as String pool concept if explicitly create new
+		 * object String using new keyword, then it will have new object everytime
+		 * .equals() checks for content reference (Object doesn't matter, value is
+		 * accountable)
 		 */
 
 		String str1 = "Avdhut";
 		String str2 = "Avdhut";
 		String str3 = new String("Avdhut");
 
-		System.out.println(str1 == str2);  		// True
-		System.out.println(str1 == str3);  		// False
-		System.out.println(str1.equals(str2)); 	// True
-		System.out.println(str1.equals(str3)); 	// True
+		System.out.println(str1 == str2); // True
+		System.out.println(str1 == str3); // False
+		System.out.println(str1.equals(str2)); // True
+		System.out.println(str1.equals(str3)); // True
 	}
 
-	/** int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3
-	    int[] arr2 = { 500, 100, 10, 50, 300 }; -> 50 */
+	/**
+	 * int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3 int[] arr2 = {
+	 * 500, 100, 10, 50, 300 }; -> 50
+	 */
 
 	private static int _26_secondSmallestNumberArray_UsingTreeSet(int[] arr) {
 		// Time complexity: O(nlogn)
@@ -1044,8 +1167,10 @@ public class _01_PracticeJava {
 		return ts.higher(ts.first());
 	}
 
-	/** int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3
-		int[] arr2 = { 500, 100, 10, 50, 300 }; -> 50 */
+	/**
+	 * int[] arr1 = { 3, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 3 int[] arr2 = {
+	 * 500, 100, 10, 50, 300 }; -> 50
+	 */
 
 	private static int _25_secondSmallestNumberArray_UsingHeap(int[] arr) {
 		// Time complexity: O(nlogk)
@@ -1063,8 +1188,10 @@ public class _01_PracticeJava {
 		return maxHeap.peek();
 	}
 
-	/** int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 11
-		int[] arr2 = { 2, 100, 10, 50, 300 }; -> 100  */
+	/**
+	 * int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; -> 11 int[] arr2 = {
+	 * 2, 100, 10, 50, 300 }; -> 100
+	 */
 
 	private static int _24_secondLargestNumberArray(int[] arr) {
 		// Time complexity: O(n)
@@ -1124,7 +1251,7 @@ public class _01_PracticeJava {
 	}
 
 	/** int[] arr = new int[] { 1, 2, 3, 4, 5 }; -> 5, 4, 3, 2, 1 */
-	
+
 	private static void _21_ReverseArrayUsing_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
@@ -1158,7 +1285,7 @@ public class _01_PracticeJava {
 		}
 	}
 
-	/**	int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 } -> // 2 10 11 */
+	/** int[] arr = { 2, 10, 10, 100, 2, 10, 11, 2, 11, 2 } -> // 2 10 11 */
 
 	private static void _19_duplicateElementsArray(int[] arr) {
 		// Time complexity: O(n)
