@@ -22,12 +22,15 @@ public class Exercises {
 
 		System.out.println("-----------------------------------------");
 
-		_04_Scanner();
+//		_04_Scanner();
 		
 		System.out.println("-----------------------------------------");
 
+		_05_FahrenheitCelsius();
+		
 		System.out.println("-----------------------------------------");
 
+		
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
@@ -39,6 +42,15 @@ public class Exercises {
 		System.out.println("-----------------------------------------");
 	}
 
+	private static void _05_FahrenheitCelsius() {
+		float c;
+		float f = 272;
+
+		c = (f - 32) * 5 / 9;
+		System.out.println("Temperatue in Celsius = " + c);
+
+	}
+	
 	private static void _04_Scanner() {
 		
 		int a;
