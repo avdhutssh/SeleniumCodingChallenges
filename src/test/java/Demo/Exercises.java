@@ -1,6 +1,7 @@
 package Demo;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Exercises {
@@ -21,6 +22,8 @@ public class Exercises {
 
 		System.out.println("-----------------------------------------");
 
+		_04_Scanner();
+		
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
@@ -34,6 +37,27 @@ public class Exercises {
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+	}
+
+	private static void _04_Scanner() {
+		
+		int a;
+		float b;
+		String c;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Intger");
+		a = sc.nextInt();
+		System.out.println("integer entered is: " + a);
+
+		System.out.println("Enter float");
+		b = sc.nextFloat();
+		System.out.println("float entered is: " + b);
+
+		System.out.println("Enter string");
+		c = sc.next();
+		System.out.println("string entered is: " + c);
+		
 	}
 
 	private static void _03_compareArrayAndFindCommon(int[] a, int[] b) {
