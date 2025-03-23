@@ -47,9 +47,22 @@ public class Exercises {
 
 		System.out.println("-----------------------------------------");
 
+		int[] nums = { 1, 2, 3, 2, 1, 4, 5, 4, 3 };
+		_09_HashSeT_findDuplicatesInArray(nums); // 2 1 4 3
+
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+	}
+
+	private static void _09_HashSeT_findDuplicatesInArray(int[] nums) {
+
+		Set<Integer> hs = new HashSet<>();
+		for (int num : nums) {
+			if (!hs.add(num))
+				System.out.print(num + " ");
+		}
+		System.out.println();
 	}
 
 	private static void _08_HT_CommonElementsInArray(int[] arr1, int[] arr2) {
