@@ -23,23 +23,37 @@ public class Exercises {
 		System.out.println("-----------------------------------------");
 
 //		_04_Scanner();
-		
+
 		System.out.println("-----------------------------------------");
 
 		_05_FahrenheitCelsius();
-		
-		System.out.println("-----------------------------------------");
-
-		
-		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+
+		_06_factorial(5); // 120
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+	}
+
+	private static void _06_factorial(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int k = 1;
+		int factorial = 1;
+		while (k <= num) {
+			factorial *= k;
+			k++;
+		}
+		System.out.println(factorial);
+
 	}
 
 	private static void _05_FahrenheitCelsius() {
@@ -50,14 +64,14 @@ public class Exercises {
 		System.out.println("Temperatue in Celsius = " + c);
 
 	}
-	
+
 	private static void _04_Scanner() {
-		
+
 		int a;
 		float b;
 		String c;
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("Enter Intger");
 		a = sc.nextInt();
 		System.out.println("integer entered is: " + a);
@@ -69,7 +83,7 @@ public class Exercises {
 		System.out.println("Enter string");
 		c = sc.next();
 		System.out.println("string entered is: " + c);
-		
+
 	}
 
 	private static void _03_compareArrayAndFindCommon(int[] a, int[] b) {
