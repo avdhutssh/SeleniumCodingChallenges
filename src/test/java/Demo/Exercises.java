@@ -34,13 +34,27 @@ public class Exercises {
 
 		System.out.println("-----------------------------------------");
 
-		System.out.println("-----------------------------------------");
+		int[] numbers = new int[] { 1, 2, 5, 6, 7, 3 };
+		_07_missingNumber(numbers); // 4
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+	}
+
+	private static void _07_missingNumber(int[] arr) {
+		// TODO Auto-generated method stub
+		int totalNum = arr.length + 1;
+		int totalSum = totalNum * ((totalNum + 1) / 2);
+		int actualSum = 0;
+		for (int num : arr) {
+			actualSum += num;
+		}
+		System.out.println(totalSum - actualSum);
 	}
 
 	private static void _06_factorial(int num) {
