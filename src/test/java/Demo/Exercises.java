@@ -1,6 +1,8 @@
 package Demo;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -39,11 +41,36 @@ public class Exercises {
 
 		System.out.println("-----------------------------------------");
 
-		System.out.println("-----------------------------------------");
+		int[] array1 = { 1, 3, 5 };
+		int[] array2 = { 2, 4, 5, 6, 3 };
+		_08_HT_CommonElementsInArray(array1, array2); // 3,5
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+	}
+
+	private static void _08_HT_CommonElementsInArray(int[] arr1, int[] arr2) {
+
+		if (arr2.length > arr1.length) {
+			int[] temp = arr1;
+			arr1 = arr2;
+			arr2 = temp;
+		}
+
+		Map<Integer, Boolean> hm = new HashMap<>();
+		for (int num : arr1) {
+			hm.put(num, true);
+		}
+
+		for (int num : arr2) {
+			if (hm.containsKey(num)) {
+				System.out.print(num + " ");
+			}
+		}
+		System.out.println();
 	}
 
 	private static void _07_missingNumber(int[] arr) {
