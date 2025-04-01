@@ -1,29 +1,54 @@
 package Demo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.Stack;
+import java.util.TreeSet;
 
 public class demo {
 
 	public static void main(String[] args) {
-		int[] arr ={1212, 11, 12541254, 00, 444444}; // [12, 1, 1254, 0, 444]
-		
-		_01_UsingBFA(arr);
 
+		String str1 = "Happy BithDay"; // yappaH yaDhtiB
+		String str2 = "Hello"; // helo
+		_01_reverseOrder(str1);
+		System.out.println();
+		_02_removeDuplicates(str2);
 	}
 
-	private static void _01_UsingBFA(int[] arr) {
-		
-		List<String> al = new ArrayList<>();
-		for(int num : arr) {
-			String str = Integer.toString(num);
-			if(str.length()==1) {
-				al.add(str);
-			}else {
-				al.add(str.substring(0,str.length()/2));
-			}	
+	private static void _02_removeDuplicates(String str) {
+
+		StringBuilder sb = new StringBuilder();
+		Set<Character> hs = new TreeSet<>();
+		for (char ch : str.toCharArray()) {
+			hs.add(ch);
 		}
-		System.out.println(al);
+		for (char ch : hs) {
+			sb.append(ch);
+		}
+		System.out.println(sb.toString());
 	}
 
+	private static void _01_reverseOrder(String str) {
+
+		StringBuilder sb = new StringBuilder();
+		String[] strArr = str.split(" ");
+		for (String word : strArr) {
+			System.out.print(reversString(word) + " ");
+
+		}
+	}
+
+	static String reversString(String str) {
+
+		Stack<Character> st = new Stack<>();
+		for (char ch : str.toCharArray()) {
+			st.push(ch);
+		}
+		StringBuilder sb = new StringBuilder();
+
+		while (!st.isEmpty()) {
+			sb.append(st.pop());
+		}
+		return sb.toString();
+	}
 }
