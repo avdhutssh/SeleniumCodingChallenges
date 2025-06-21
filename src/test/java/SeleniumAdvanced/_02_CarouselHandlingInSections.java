@@ -1,4 +1,4 @@
-package Selenium;
+package SeleniumAdvanced;
 
 import java.time.Duration;
 import java.util.ArrayList;
