@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -31,6 +32,12 @@ public class _04_CheckingBrokenLinksInParallel {
         if (continueShopping.isDisplayed()) continueShopping.click();
     }
 
+    @AfterSuite
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @Test
     public void verifyLinksSerially() {
