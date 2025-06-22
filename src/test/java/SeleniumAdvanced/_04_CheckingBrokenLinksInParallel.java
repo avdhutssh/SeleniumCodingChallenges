@@ -27,7 +27,10 @@ public class _04_CheckingBrokenLinksInParallel {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.amazon.in");
+        WebElement continueShopping = driver.findElement(By.xpath("//*[normalize-space(text())='Continue shopping']"));
+        if (continueShopping.isDisplayed()) continueShopping.click();
     }
+
 
     @Test
     public void verifyLinksSerially() {
@@ -48,7 +51,6 @@ public class _04_CheckingBrokenLinksInParallel {
         }); // Time taken: 79.005 seconds
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken serially : " + ((endTime - startTime) / 1000.0));
-        driver.quit();
 
     }
 
@@ -72,7 +74,6 @@ public class _04_CheckingBrokenLinksInParallel {
         ); // Time taken: 13.81 seconds
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken parallely : " + ((endTime - startTime) / 1000.0));
-        driver.quit();
 
     }
 
@@ -106,7 +107,6 @@ public class _04_CheckingBrokenLinksInParallel {
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken with ThreadGroups : " + ((endTime - startTime) / 1000.0));
         // Time taken: 60.017 seconds
-        driver.quit();
 
     }
 
