@@ -22,18 +22,42 @@ public class _06_SelectLowestFlightPriceDate {
         driver.manage().window().maximize();
         driver.get("https://www.yatra.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        List<WebElement> closeButtons = driver.findElements(By.xpath("(//img[@alt='cross'])[1]"));
+        if (!closeButtons.isEmpty() && closeButtons.get(0).isDisplayed()) {
+            closeButtons.get(0).click();
+            Thread.sleep(2000);
+        }
         driver.findElement(By.xpath("//div[@aria-label='Departure Date inputbox']")).click();
         Thread.sleep(2000);
+
         String yearMonth = YearMonth.now().toString();
         String farePath = "//div[@aria-label='month  " + yearMonth + "']//div[not(contains(@class,'outside-month'))]/span/span[contains(text(),'₹')]";
-        System.out.println(farePath);
-        int lowestFare = driver.findElements(By.xpath(farePath)).stream().mapToInt(ele -> Integer.parseInt(ele.getText().replaceAll("[^0-9]", ""))).min().getAsInt();
-        System.out.println("Lowest fare for " + yearMonth + " is: ₹" + lowestFare);
-        NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
-        String formattesLowestFare = "₹" + numberFormat.format(lowestFare);
-        String lowestFarePath = "//div[@aria-label='month  " + yearMonth + "']//div[not(contains(@class,'outside-month'))]/span/span[contains(text(),'" + formattesLowestFare + "')]";
-        List<WebElement> allDatesWithLowestfare = driver.findElements(By.xpath(lowestFarePath));
-        allDatesWithLowestfare.get(new Random().nextInt(allDatesWithLowestfare.size())).click();
+        int lowestFare = driver.findElements(By.xpath(farePath))
+                .stream()
+                .mapToInt(ele -> Integer.parseInt(ele.getText().replaceAll("[^0-9]", "")))
+                .min().getAsInt();
 
+        System.out.println("Lowest fare for " + yearMonth + " is: ₹" + lowestFare);
+
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
+        String formattedLowestFare = "₹" + numberFormat.format(lowestFare);
+
+        String lowestFarePath = "//div[@aria-label='month  " + yearMonth + "']//div[not(contains(@class,'outside-month'))]/span/span[contains(text(),'" + formattedLowestFare + "')]/..";
+        List<WebElement> allDatesWithLowestFare = driver.findElements(By.xpath(lowestFarePath));
+
+        System.out.println("Dates with lowest price (" + formattedLowestFare + "):");
+        for (WebElement dateElem : allDatesWithLowestFare) {
+            String dateText = dateElem.getText().split("\\n")[0].trim();
+            System.out.println("Date: " + dateText);
+        }
+
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(allDatesWithLowestFare.size());
+        WebElement selectedDateElem = allDatesWithLowestFare.get(randomIndex);
+
+        String selectedDateText = selectedDateElem.getText().split("\\n")[0].trim();
+        System.out.println("Selected date with lowest price: " + selectedDateText);
+
+        selectedDateElem.click();
     }
 }
