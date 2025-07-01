@@ -1,6 +1,7 @@
 package SeleniumAdvanced;
 
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashSet;
@@ -118,7 +119,6 @@ public class _04_CheckingBrokenLinksInParallel {
     }
 
     private void validateUrl(String url) {
-
         try {
             URL link = new URL(url);
             HttpURLConnection httpConnection = (HttpURLConnection) link.openConnection();
